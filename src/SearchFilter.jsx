@@ -32,7 +32,9 @@ const SearchFilter = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:3001/webflow-api");
+      const response = await axios.get(
+        "pppp-five-taupe.vercel.app/webflow-api"
+      );
       const data = response.data.items;
 
       // Sort events by date

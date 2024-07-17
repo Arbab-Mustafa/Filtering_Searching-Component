@@ -58,7 +58,9 @@ const EventDetail = () => {
       setLoading(true);
 
       try {
-        const response = await axios.get("http://localhost:3001/webflow-api");
+        const response = await axios.get(
+          "pppp-five-taupe.vercel.app/webflow-api"
+        );
         const eventData = response.data.items.find((item) => item.id === id);
         setEvent(eventData);
       } catch (err) {
