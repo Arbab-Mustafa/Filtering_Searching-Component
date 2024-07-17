@@ -59,7 +59,7 @@ const EventDetail = () => {
 
       try {
         const response = await axios.get(
-          "pppp-five-taupe.vercel.app/webflow-api"
+          "https://filtering-searching-component-server.vercel.app/"
         );
         const eventData = response.data.items.find((item) => item.id === id);
         setEvent(eventData);

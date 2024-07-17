@@ -45,7 +45,9 @@ const VenuDetail = () => {
       setLoading(true);
 
       try {
-        const response = await axios.get("http://localhost:3001/webflow-api");
+        const response = await axios.get(
+          "https://filtering-searching-component-server.vercel.app/"
+        );
         const eventData = response.data.items.find((item) => item.id === id);
         setEvent(eventData);
       } catch (err) {

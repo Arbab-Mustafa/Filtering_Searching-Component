@@ -33,7 +33,7 @@ const SearchFilter = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        "pppp-five-taupe.vercel.app/webflow-api"
+        "https://filtering-searching-component-server.vercel.app/"
       );
       const data = response.data.items;
 
