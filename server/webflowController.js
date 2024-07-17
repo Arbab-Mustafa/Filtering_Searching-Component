@@ -1,9 +1,7 @@
 export const getWebflowData = async (req, res) => {
   // Retrieve API URL and Token from environment variables
-  const apiUrl =
-    "https://api.webflow.com/v2/collections/665bd736fe353cccc2c89489/items";
-  const apiToken =
-    "Bearer 6e319b150e1ae1a1064c19c4cdf28c4723633f7f73ae5eca31ce177d79d12945";
+  const apiUrl = process.env.WEBFLOW_API_URL;
+  const apiToken = process.env.WEBFLOW_API_TOKEN;
 
   // Check if the necessary environment variables are defined
   if (!apiUrl || !apiToken) {
@@ -13,6 +11,9 @@ export const getWebflowData = async (req, res) => {
       error: `${missingVar} is not defined.`,
     });
   }
+
+  console.log("API URL:", apiUrl); // Debug: Log API URL
+  console.log("API Token:", apiToken);
 
   try {
     // Make a request to the Webflow API with the appropriate headers
