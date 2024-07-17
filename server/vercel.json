@@ -6,14 +6,5 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/webflow-api",
-      "dest": "index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "index.js"
-    }
-  ]
+  "routes": [{ "src": "/(.*)", "dest": "/index.js" }]
 }

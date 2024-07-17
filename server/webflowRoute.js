@@ -4,6 +4,6 @@ const route = Router();
 
 // add route for webflow api
 
-route.get("/webflow-api", getWebflowData);
+route.get("/", getWebflowData);
 
 export default route;
