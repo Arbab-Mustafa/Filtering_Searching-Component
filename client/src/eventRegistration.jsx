@@ -42,7 +42,7 @@ const EventRegistration = ({ isOpen, onRequestClose, event }) => {
         <div className="fixed inset-0  flex items-center justify-center gap-3 p-4">
           <div className="fixed inset-0 bg-black opacity-50"></div>
           <div
-            className={`relative flex inset-0   fxed flex-col md:flex-row bg-white h-[60vh] md:h-fit overflow-y-scroll scroll-p-0 md:[50vh] rounded-lg shadow-lg w-full md:max-w-[70rem] p-3 md:p-5 ${
+            className={`relative flex inset-0   fxed flex-col md:flex-row bg-white h-fit md:h-fit overflow-y-scroll scroll-p-0   rounded-lg shadow-lg w-full md:max-w-[70rem] p-3 md:p-5 ${
               isFormOpen ? "block" : "hidden"
             }`}
           >
