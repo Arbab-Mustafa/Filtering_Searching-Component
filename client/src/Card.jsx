@@ -57,7 +57,7 @@ const Card = ({ event }) => {
         <div
           className={`${
             recomend ? "card-img" : ""
-          } card z-10 md:p-2 p-1 my-1 md:my-2 rounded-lg shadow-lg flex gap-2 md:gap-5 sm:justify-evenly relative`}
+          }  md:card z-10 md:p-2 p-1 my-1 md:my-2 border md:border-none border-gray-200 rounded-sm md:rounded-lg md:shadow-md flex gap-2 md:gap-5 sm:justify-evenly relative`}
         >
           {/* Conditio nally render recommendation tag */}
           {recomend && (
@@ -88,7 +88,7 @@ const Card = ({ event }) => {
                   }
                   className={`  ${
                     recomend ? "" : ""
-                  } w-full h-full object-cover img-radius`}
+                  } w-full h-full object-cover md:img-radius`}
                 />
               </div>
             </Link>
@@ -98,7 +98,7 @@ const Card = ({ event }) => {
           <div
             className={` ${
               recomend ? "right" : ""
-            }  flex-1 p-2 mt-9 md:mt-2 md:p-4`}
+            }  flex-1 p-2 md:mt-9 mt-0 md:p-4`}
           >
             {/* Event name */}
             <h3 className="text-sm md:text-3xl font-semibold md:font-bold mb-2">
@@ -112,11 +112,11 @@ const Card = ({ event }) => {
               }  flex flex-col sm:flex-row gap-0.5 sm:gap-1 md:gap-4`}
             >
               <Link to={`/event/${event.id}`}>
-                <span className="flex gap-0 sm:gap-1 md:justify-center justify-start items-center text-sm md:text-xl">
+                <span className="flex  sm:gap-1 md:justify-center justify-start items-center text-xs md:text-xl">
                   <p
                     className={` ${
                       recomend ? "right-color" : ""
-                    }  text-gray-500 text-color`}
+                    }  text-gray-500 md:text-customBlue`}
                   >
                     <FaMapLocationDot />
                   </p>
@@ -153,20 +153,18 @@ const Card = ({ event }) => {
             </div>
 
             {/* People, Genre, and Value */}
-            <div className="flex sm:flex-row gap-1 sm:gap-4 text-sm md:text-base md:justify-between my-2 md:w-[25vw]">
+            <div className="flex sm:flex-row gap-1 flex-wrap sm:gap-4 text-sm md:text-base md:justify-between my-2 md:w-[25vw]">
               {/* People attending */}
               <Link to={`/event/${event.id}`}>
                 <span className="flex gap-1 sm:gap-3 items-center justify-start md:justify-between">
                   <p
                     className={`${
                       recomend ? "right-color" : ""
-                    }   text-gray-500 text-color text-sm md:text-3xl`}
+                    }   text-gray-500 md:text-customBlue text-xs md:text-3xl`}
                   >
                     <BsFillPeopleFill />
                   </p>
-                  <p className="text-[0.7rem] md:text-xl">
-                    {event.fieldData["18"]}
-                  </p>
+                  <p className="text-xs md:text-xl">{event.fieldData["18"]}</p>
                 </span>
               </Link>
               {/* Genre */}
@@ -175,11 +173,11 @@ const Card = ({ event }) => {
                   <p
                     className={` ${
                       recomend ? "right-color" : ""
-                    }  text-gray-500 text-color text-sm md:text-3xl`}
+                    }  text-gray-500 md:text-customBlue text-xs md:text-3xl`}
                   >
                     <AiFillTikTok />
                   </p>
-                  <p className="text-[0.7rem] md:text-xl">
+                  <p className="text-xs md:text-xl">
                     {event.fieldData["genres-1"]}
                   </p>
                 </span>
@@ -189,13 +187,11 @@ const Card = ({ event }) => {
                 <p
                   className={`${
                     recomend ? "right-color" : ""
-                  }  text-gray-500 text-color text-sm md:text-3xl`}
+                  }  text-gray-500 md:text-customBlue text-xs md:text-3xl`}
                 >
                   <RiMoneyDollarCircleFill />
                 </p>
-                <p className="text-[0.7rem] md:text-xl">
-                  {event.fieldData.valu}
-                </p>
+                <p className="text-xs md:text-xl">{event.fieldData.valu}</p>
               </span>
             </div>
 
@@ -203,14 +199,14 @@ const Card = ({ event }) => {
             <div className="md:flex hidden flex-col sm:flex-row gap-1 sm:gap-4 justify-between my-2 md:w-[25vw]">
               {/* Time */}
               <span className="flex gap-1 sm:gap-3 justify-between">
-                <p className="text-color text-3xl">
+                <p className="md:text-customBlue text-3xl">
                   <MdOutlineAccessTime />
                 </p>
                 <p>{event.fieldData["time-3"]}</p>
               </span>
               {/* Value */}
               <span className="flex gap-1 sm:gap-3 justify-start items-center md:justify-between">
-                <p className="text-gray-500 text-color text-sm md:text-3xl">
+                <p className="text-gray-500 md:text-customBlue text-sm md:text-3xl">
                   <RiMoneyDollarCircleFill />
                 </p>
                 <p className="text-sm md:text-xl">{event.fieldData.valu}</p>
@@ -224,7 +220,7 @@ const Card = ({ event }) => {
                 onClick={openModal}
                 className={` ${
                   recomend ? "right-color-button" : ""
-                }  bg-yellow-300 btn1 py-2 px-3 md:px-4 md:py-2 rounded-2xl md:rounded-lg md:font-semibold cursor-pointer`}
+                }  bg-yellow-300 btn1 py-2 px-3 md:px-4 md:py-2  md:rounded-lg md:font-semibold cursor-pointer`}
               >
                 Listen
               </span>

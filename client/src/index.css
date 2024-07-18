@@ -45,7 +45,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: #dec62a;
     background-color: transparent;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
     padding: 1px 6px;
   }
 

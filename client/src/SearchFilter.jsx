@@ -166,7 +166,7 @@ const SearchFilter = () => {
                   <select
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    className="inline-flex w-[80%] justify-center gap-x-1.5 rounded-md  outline-none active:outline-none px-3 py-2 text-sm font-semibold text-gray-900    overflow-y-scroll  hover:bg-gray-50 appearance-none"
+                    className="inline-flex w-[80%] justify-center gap-x-1.5 rounded-md  outline-none active:outline-none px-3 py-2 text-sm font-semibold text-gray-900  bg-transparent  overflow-y-scroll  hover:bg-gray-50 appearance-none"
                     id="menu-button"
                   >
                     <option
@@ -280,7 +280,7 @@ const SearchFilter = () => {
                   {displayedEvents[date].length > eventCounts[date] && (
                     <button
                       onClick={() => loadMoreEventsForDate(date)}
-                      className=" mt-4 border-2 flex justify-center border-yellow-500 md:bg-yellow-500 md:hover:bg-yellow-600 mx-auto text-yellow-500 md:text-black font-semibold py-1 md:py-2 px-3 md:px-4 rounded "
+                      className=" mt-4 border  text-xs md:text-xl md:border-2 flex justify-center border-yellow-500 md:bg-yellow-500 md:hover:bg-yellow-600 mx-auto text-yellow-500 md:text-black md:font-semibold py-1 md:py-2 px-3 md:px-4 rounded-full "
                     >
                       Load More
                     </button>
@@ -296,7 +296,7 @@ const SearchFilter = () => {
           {Object.keys(displayedEvents).length > 0 && (
             <button
               onClick={loadMoreDays}
-              className="mt-4 border-2 flex justify-center border-yellow-500 md:bg-yellow-500 md:hover:bg-yellow-600 mx-auto text-yellow-500 md:text-black font-semibold text-base md:text-xl py-1 md:py-3 px-3 md:px-5 rounded"
+              className="mt-4 border flex justify-center border-yellow-500  bg-yellow-500 md:hover:bg-yellow-600 mx-auto text-white  md:text-black font-semibold text-base md:text-xl py-2 md:py-3 px-5  rounded-full md:rounded"
             >
               See all events
             </button>

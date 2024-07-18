@@ -29,9 +29,6 @@ const VenuDetail = () => {
     [0, 0.6, 0.9, 1],
     [0.7, 1, 1.4, 1.9]
   );
-  const x = useTransform(scrollYProgress, [0, 0.5, 1], [100, 40, 0]);
-  const x1 = useTransform(scrollYProgress, [0, 0.5, 1], [90, 10, 0]);
-  const s1 = useTransform(scrollYProgress, [0, 0.9], [0.8, 1]);
 
   const x2 = useTransform(scrollYProgress, [0, 0.5, 1], [0, 50, 100]);
   const s2 = useTransform(scrollYProgress, [0, 0.7], [0.8, 1]);

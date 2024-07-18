@@ -33,9 +33,9 @@ const EventDetail = () => {
     [0.7, 1, 1.4, 1.9]
   );
 
-  const x = useTransform(scrollYProgress, [0, 0.5, 1], [100, 40, 0]);
-  const x1 = useTransform(scrollYProgress, [0, 0.5, 1], [90, 10, 0]);
-  const s1 = useTransform(scrollYProgress, [0, 0.9], [0.8, 1]);
+  const x = useTransform(scrollYProgress, [0, 0.5, 1], [40, 20, 0]);
+  const x1 = useTransform(scrollYProgress, [0, 0.5, 1], [30, 10, 0]);
+  const s1 = useTransform(scrollYProgress, [0, 0.9], [0.9, 1]);
 
   const x2 = useTransform(scrollYProgress, [0, 0.5, 1], [0, 50, 100]);
   const s2 = useTransform(scrollYProgress, [0, 0.7], [0.8, 1]);
@@ -105,7 +105,7 @@ const EventDetail = () => {
           {/* 1 */}
           <div className="md:w-2/3 w-full h-auto  max-w-[680px] max-h-[810px] overflow-hidden rounded-sm sm:z-0">
             <motion.img
-              style={{ x: x2, scale: s2 }}
+              style={{ scale: s2 }}
               src={event.fieldData["main-image"].url}
               alt={event.fieldData["main-image"].alt || event.fieldData.name}
               className="w-full h-full object-cover rounded-sm"
