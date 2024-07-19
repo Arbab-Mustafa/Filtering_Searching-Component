@@ -27,8 +27,6 @@ const EventDetail = () => {
     offset: ["start start", "end end"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.6, 1], [0.7, 1, 1.4]);
-
   const x1 = useTransform(scrollYProgress, [0, 0.5, 1], [30, 10, 0]);
   const s1 = useTransform(scrollYProgress, [0, 0.9], [0.9, 1]);
 
@@ -180,10 +178,7 @@ const EventDetail = () => {
               <h3 className="text-sm sm:text-xl font-semibold mb-2 ">
                 Followed By :{" "}
               </h3>
-              <motion.div
-                style={{ scale }}
-                className=" flex gap-1  sm:gap-2  flex-wrap"
-              >
+              <motion.div className=" flex gap-1  sm:gap-2  flex-wrap">
                 <div className="bg-blue-500 rounded-full text-white p-2">
                   <Link to={event.fieldData["social-fb-link"]}>
                     <FaFacebookF className="text-xl sm:text-3xl" />
