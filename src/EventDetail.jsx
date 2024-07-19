@@ -29,7 +29,6 @@ const EventDetail = () => {
 
   const scale = useTransform(scrollYProgress, [0, 0.6, 1], [0.7, 1, 1.4]);
 
-  const x = useTransform(scrollYProgress, [0, 0.5, 1], [40, 20, 0]);
   const x1 = useTransform(scrollYProgress, [0, 0.5, 1], [30, 10, 0]);
   const s1 = useTransform(scrollYProgress, [0, 0.9], [0.9, 1]);
 
