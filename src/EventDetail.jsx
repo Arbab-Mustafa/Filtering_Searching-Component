@@ -181,10 +181,7 @@ const EventDetail = () => {
               <h3 className="text-sm sm:text-xl font-semibold mb-2 ">
                 Followed By :{" "}
               </h3>
-              <motion.div
-                style={{ scale }}
-                className=" flex gap-1  sm:gap-2  flex-wrap"
-              >
+              <motion.div className=" flex gap-1  sm:gap-2  flex-wrap">
                 <div className="bg-blue-500 rounded-full text-white p-2">
                   <Link to={event.fieldData["social-fb-link"]}>
                     <FaFacebookF className="text-xl sm:text-3xl" />
