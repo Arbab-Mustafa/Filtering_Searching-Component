@@ -70,7 +70,7 @@ const Card = ({ event }) => {
         >
           {/* Conditio nally render recommendation tag */}
           {recomend && (
-            <div className="md:absolute md:top-[16%] hidden md:inline-block  overflow-hidden md:-left-[10%]   md:py-4 md:w-[30vh] lg:w-[50vh] md:pl-28 bg-yellow-500 -rotate-[50deg]   md:text-3xl text-white">
+            <div className="md:absolute md:top-[5rem] hidden md:inline-block  overflow-hidden md:-left-[12%]   md:py-4 md:w-[30vh] lg:w-[50vh] md:pl-[7.2rem] bg-yellow-500 -rotate-[50deg]   md:text-3xl text-white">
               Recommended
             </div>
           )}
