@@ -24,7 +24,7 @@ const Card = ({ event }) => {
   });
 
   // Framer Motion useTransform hooks for animation
-  const scale = useTransform(scrollYProgress, [0, 0.6, 0.9], [1, 1.05, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 0.7, 1], [0.9, 1, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.9], [0.9, 1]);
 
   // Function to open the modal
@@ -57,7 +57,7 @@ const Card = ({ event }) => {
         <div
           className={`${
             recomend ? "card-img" : ""
-          }  md:card z-10 md:p-2 p-1 my-1 md:my-2 border md:border-none border-gray-200 rounded-sm md:rounded-lg md:shadow-md flex gap-2 md:gap-5 sm:justify-evenly relative`}
+          }  md:card z-10 md:p-2 p-1 my-1 md:my-2 border md:border-none border-gray-200 rounded-sm md:rounded-lg  flex gap-2 md:gap-5 sm:justify-evenly relative`}
         >
           {/* Conditio nally render recommendation tag */}
           {recomend && (

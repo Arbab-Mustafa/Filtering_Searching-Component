@@ -19,6 +19,7 @@ const SearchFilter = () => {
   const [currentDate, setCurrentDate] = useState(
     new Date().toISOString().split("T")[0]
   );
+
   const [daysToShow, setDaysToShow] = useState(3);
 
   useEffect(() => {
@@ -160,7 +161,7 @@ const SearchFilter = () => {
             Latest Events and Concerts
           </h2>
           <div className="flex flex-wrap justify-between flex-col md:flex-row items-center px-3 gap-4">
-            <div className="flex items-center bg-white py-2 px-1 rounded-lg overflow-hidden w-[80%] md:w-52 flex-grow relative">
+            <div className="flex items-center bg-white py-2 px-1 rounded-lg overflow-hidden w-[100%] md:w-52 flex-grow relative">
               <div className="flex-grow">
                 <div>
                   <select
@@ -170,8 +171,8 @@ const SearchFilter = () => {
                     id="menu-button"
                   >
                     <option
-                      value=""
                       disabled
+                      value=""
                       className="font-bold text-sm md:text-xl"
                     >
                       Choose City
@@ -211,6 +212,7 @@ const SearchFilter = () => {
                   </select>
                 </div>
               </div>
+              {/*  */}
               {city && (
                 <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-700 text-base md:text-lg"></span>
               )}
@@ -221,7 +223,7 @@ const SearchFilter = () => {
               )}
             </div>
 
-            <label className="flex items-center bg-white relative z-[180] py-2 px-1 rounded-lg w-[80%] md:w-52 flex-grow cursor-pointer shadow-md border border-gray-300">
+            <label className="flex items-center bg-white relative z-[180] py-2 px-1 rounded-lg w-[100%] md:w-52 flex-grow cursor-pointer shadow-md border border-gray-300">
               <DatePicker
                 selected={date}
                 onChange={(e) => setDate(e)}
@@ -235,7 +237,7 @@ const SearchFilter = () => {
               </span>
             </label>
 
-            <div className="flex items-center bg-white py-2 px-1 rounded-lg  w-[80%] md:w-52 overflow-hidden flex-grow relative">
+            <div className="flex items-center bg-white py-2 px-1 rounded-lg  w-[100%] md:w-52 overflow-hidden flex-grow relative">
               <input
                 type="text"
                 placeholder="Search Event"

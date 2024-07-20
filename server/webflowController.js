@@ -21,6 +21,7 @@ export const getWebflowData = async (req, res) => {
       headers: {
         Authorization: apiToken,
         "Content-Type": "application/json",
+        "accept-version": "1.0.0",
       },
     });
 

@@ -24,15 +24,6 @@ const VenuDetail = () => {
     offset: ["start start", "end end"],
   });
 
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.6, 0.9, 1],
-    [0.7, 1, 1.4, 1.9]
-  );
-
-  const x2 = useTransform(scrollYProgress, [0, 0.5, 1], [0, 50, 100]);
-  const s2 = useTransform(scrollYProgress, [0, 0.7], [0.8, 1]);
-
   const s3 = useTransform(scrollYProgress, [0, 0.5, 0.9], [0.6, 0.9, 1]);
 
   //
@@ -80,7 +71,6 @@ const VenuDetail = () => {
           {/* 1 */}
           <div className="md:w-3/3 w-full h-auto  hidden  max-w-[780px] max-h-[810px] overflow-hidden rounded-sm sm:z-0">
             <motion.img
-              style={{ x: x2, scale: s2 }}
               src={event.fieldData["main-image"].url}
               alt={event.fieldData["main-image"].alt || event.fieldData.name}
               className="w-full h-full object-cover rounded-sm"
@@ -88,7 +78,7 @@ const VenuDetail = () => {
           </div>
 
           {/* 3 */}
-          <motion.div className="   w-full  card  sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
+          <motion.div className=" w-full  card  sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
             <div className=" md:py-2 md:px-3 p-1  ">
               <h1 className=" text-3xl md:text-6xl font-bold mb-4 font-serif md:p-2 p-1">
                 {event.fieldData["venue-name"]}
@@ -133,10 +123,7 @@ const VenuDetail = () => {
               <h3 className="text-sm sm:text-xl font-semibold mb-2 ">
                 Followed By :{" "}
               </h3>
-              <motion.div
-                style={{ scale }}
-                className=" flex gap-1  sm:gap-2  flex-wrap"
-              >
+              <motion.div className=" flex gap-1  sm:gap-2  flex-wrap">
                 <div className="bg-blue-500 rounded-full text-white p-2">
                   <Link to={event.fieldData["social-fb-link"]}>
                     <FaFacebookF className="text-xl sm:text-3xl" />
@@ -162,8 +149,8 @@ const VenuDetail = () => {
               </motion.div>
             </div>
           </div>
-          <motion.div style={{ scale }} className="p-2 sm:p-5">
-            <p className="text-sm sm:text-2xl font-sans leading-relaxed  text-center font-semibold">
+          <motion.div className="p-2 sm:p-5">
+            <p className="text-sm md:text-2xl   font-sans  leading-6 md:leading-[3rem]  md:text-start font-semibold">
               {event.fieldData.summary}
             </p>
           </motion.div>
