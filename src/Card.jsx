@@ -290,7 +290,7 @@ const Card = ({ event }) => {
                 <a
                   href={event.fieldData.tickets}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noreferrer"
                 >
                   <span
                     className={`${

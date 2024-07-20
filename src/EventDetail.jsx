@@ -101,7 +101,7 @@ const EventDetail = () => {
           </div>
 
           {/* 2 */}
-          <div className="w-auto  px-3 py-6">
+          <div className="w-auto  md:w-[28%] px-3 py-6">
             <h3 className="text-3xl font-semibold font-serif uppercase">
               Line Up
             </h3>
