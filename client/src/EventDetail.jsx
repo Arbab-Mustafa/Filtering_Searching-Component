@@ -101,7 +101,7 @@ const EventDetail = () => {
           </div>
 
           {/* 2 */}
-          <div className="w-auto px-3 py-6">
+          <div className="w-auto   px-3 py-6">
             <h3 className="text-3xl font-semibold font-serif uppercase">
               Line Up
             </h3>
@@ -196,8 +196,8 @@ const EventDetail = () => {
               </motion.div>
             </div>
           </div>
-          <motion.div style={{ scale: s4 }} className="p-2 sm:p-5">
-            <p className="text-sm md:text-2xl   font-sans  leading-6 md:leading-[3rem]  md:text-start font-semibold">
+          <motion.div className="p-2 sm:p-5">
+            <p className="text-sm md:text-2xl   font-sans  leading-4 md:leading-[2rem]  md:text-start font-semibold">
               {event.fieldData.summary}
             </p>
           </motion.div>
