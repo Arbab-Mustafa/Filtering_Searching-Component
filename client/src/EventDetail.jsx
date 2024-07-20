@@ -101,7 +101,7 @@ const EventDetail = () => {
           </div>
 
           {/* 2 */}
-          <div className="w-auto md:w-[30%]  px-3 py-6">
+          <div className="w-auto  md:w-[30%] px-3 py-6">
             <h3 className="text-3xl font-semibold font-serif uppercase">
               Line Up
             </h3>
@@ -111,7 +111,7 @@ const EventDetail = () => {
           </div>
 
           {/* 3 */}
-          <motion.div className="md:absolute  w-full md:w-[50rem] card right-1 md:-bottom-10 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
+          <motion.div className="md:absolute  w-full md:w-[50rem] card right-1 md:-bottom-20 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
             <motion.div className=" md:py-2 md:px-3 p-1  ">
               <h1 className=" text-3xl md:text-6xl font-bold mb-4 font-serif md:p-2 p-1">
                 {event.fieldData.name}
@@ -196,8 +196,8 @@ const EventDetail = () => {
               </motion.div>
             </div>
           </div>
-          <motion.div className="p-2 sm:p-5">
-            <p className="text-sm md:text-2xl   font-sans  leading-4 md:leading-[2rem]  md:text-start font-semibold">
+          <motion.div style={{ scale: s4 }} className="p-2 sm:p-5">
+            <p className="text-sm md:text-2xl   font-sans  leading-6 md:leading-[3rem]  md:text-start font-semibold">
               {event.fieldData.summary}
             </p>
           </motion.div>

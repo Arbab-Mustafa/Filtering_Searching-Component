@@ -42,6 +42,9 @@ const Card = ({ event }) => {
   const handleClick = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
+  const ClickNewWindow = () => {
+    window.open("_blank", "noopener,noreferrer");
+  };
 
   return (
     <>
@@ -284,13 +287,19 @@ const Card = ({ event }) => {
                   Guest List
                 </span>
               ) : (
-                <span
-                  className={`${
-                    recomend ? "right-color-button" : ""
-                  }    text-blue-500 border border-blue-500 rounded-full text-xs  font-medium px-2 md:rounded-xl md:text-lg md:font-normal md:text-white md:bg-blue-500 md:px-4 flex justify-center items-center `}
+                <a
+                  href={event.fieldData.tickets}
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  <Link to={event.fieldData.tickets}>Buy Ticket</Link>
-                </span>
+                  <span
+                    className={`${
+                      recomend ? "right-color-button" : ""
+                    }    text-blue-500 border border-blue-500 rounded-full text-xs  py-1 md:py-3 font-medium px-2 md:rounded-xl md:text-lg md:font-normal md:text-white md:bg-blue-500 md:px-4 flex justify-center items-center `}
+                  >
+                    Buy Tickets
+                  </span>
+                </a>
               )}
             </div>
           </div>
