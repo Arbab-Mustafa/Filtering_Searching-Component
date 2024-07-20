@@ -111,7 +111,7 @@ const EventDetail = () => {
           </div>
 
           {/* 3 */}
-          <motion.div className="md:absolute  w-full md:w-auto card right-1 md:-bottom-20 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
+          <motion.div className="md:absolute  w-full md:w-[50rem] card right-1 md:-bottom-20 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
             <motion.div className=" md:py-2 md:px-3 p-1  ">
               <h1 className=" text-3xl md:text-6xl font-bold mb-4 font-serif md:p-2 p-1">
                 {event.fieldData.name}

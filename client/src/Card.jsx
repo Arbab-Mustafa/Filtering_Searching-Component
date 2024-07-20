@@ -289,7 +289,7 @@ const Card = ({ event }) => {
                     recomend ? "right-color-button" : ""
                   }    text-blue-500 border border-blue-500 rounded-full text-xs  font-medium px-2 md:rounded-xl md:text-lg md:font-normal md:text-white md:bg-blue-500 md:px-4 flex justify-center items-center `}
                 >
-                  Buy Ticket
+                  <Link to={event.fieldData.tickets}>Buy Ticket</Link>
                 </span>
               )}
             </div>
