@@ -33,7 +33,7 @@ const SearchFilter = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        "https://filtering-searching-component-server.vercel.app/"
+        "https://database-five-sepia.vercel.app/"
       );
       const data = response.data.items;
 

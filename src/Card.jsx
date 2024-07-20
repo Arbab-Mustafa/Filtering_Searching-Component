@@ -18,6 +18,7 @@ const Card = ({ event }) => {
 
   //
   let recomend = event.fieldData.recommend;
+  let guestlist = event.fieldData["guestlist-2"];
 
   // Framer Motion useScroll hook
   const { scrollYProgress } = useScroll({
@@ -268,19 +269,29 @@ const Card = ({ event }) => {
                 onClick={openModal}
                 className={` ${
                   recomend ? "right-color-button" : ""
-                }  bg-yellow-300 btn1 py-2 px-3 md:px-4 md:py-2  md:rounded-lg md:font-semibold cursor-pointer`}
+                }  bg-yellow-300 btn1 py-2 px-3 md:px-4 md:py-2  rounded-full  md:rounded-lg md:font-semibold cursor-pointer`}
               >
                 Listen
               </span>
               {/* Guest List button */}
-              <span
-                className={` ${
-                  recomend ? "right-color-button" : ""
-                } p-1 btn2 bg-color text-white md:px-4 md:py-2 rounded-2xl md:rounded-lg md:font-semibold cursor-pointer`}
-                onClick={openModal}
-              >
-                Guest List
-              </span>
+              {guestlist ? (
+                <span
+                  className={` ${
+                    recomend ? "right-color-button" : ""
+                  } p-1 btn2 bg-color text-white md:px-4 md:py-2 rounded-2xl md:rounded-lg md:font-semibold cursor-pointer`}
+                  onClick={openModal}
+                >
+                  Guest List
+                </span>
+              ) : (
+                <span
+                  className={`${
+                    recomend ? "right-color-button" : ""
+                  }    text-blue-500 border border-blue-500 rounded-full text-xs  font-medium px-2 md:rounded-xl md:text-lg md:font-normal md:text-white md:bg-blue-500 md:px-4 flex justify-center items-center `}
+                >
+                  Buy Ticket
+                </span>
+              )}
             </div>
           </div>
         </div>

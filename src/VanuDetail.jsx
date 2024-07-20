@@ -34,7 +34,7 @@ const VenuDetail = () => {
 
       try {
         const response = await axios.get(
-          "https://filtering-searching-component-server.vercel.app/"
+          "https://database-five-sepia.vercel.app/"
         );
         const eventData = response.data.items.find((item) => item.id === id);
         setEvent(eventData);
