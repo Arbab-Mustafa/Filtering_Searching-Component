@@ -27,10 +27,7 @@ const EventDetail = () => {
     offset: ["start start", "end end"],
   });
 
-  const x1 = useTransform(scrollYProgress, [0, 0.5, 1], [30, 10, 0]);
   const s1 = useTransform(scrollYProgress, [0, 0.9], [0.9, 1]);
-
-  const s2 = useTransform(scrollYProgress, [0, 0.7], [0.8, 1]);
 
   const s3 = useTransform(scrollYProgress, [0, 0.5, 0.9], [0.6, 0.9, 1]);
   const s4 = useTransform(scrollYProgress, [0, 0.7, 0.9], [0.8, 0.9, 1.1]);
@@ -97,7 +94,6 @@ const EventDetail = () => {
           {/* 1 */}
           <div className="md:w-2/3 w-full h-auto  max-w-[680px] max-h-[810px] overflow-hidden rounded-sm sm:z-0">
             <motion.img
-              style={{ scale: s2 }}
               src={event.fieldData["main-image"].url}
               alt={event.fieldData["main-image"].alt || event.fieldData.name}
               className="w-full h-full object-cover rounded-sm"
@@ -115,16 +111,13 @@ const EventDetail = () => {
           </div>
 
           {/* 3 */}
-          <motion.div
-            style={{ x: x1, scale: s1 }}
-            className="md:absolute  w-full md:w-auto card right-1 md:-bottom-20 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 "
-          >
+          <motion.div className="md:absolute  w-full md:w-[50rem] card right-1 md:-bottom-20 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
             <motion.div className=" md:py-2 md:px-3 p-1  ">
               <h1 className=" text-3xl md:text-6xl font-bold mb-4 font-serif md:p-2 p-1">
                 {event.fieldData.name}
               </h1>
 
-              <div className="flex md:gap-2 gap-4   md:text-2xl text-sm sm:text-xl font-semibold">
+              <div className="flex md:gap-2 gap-3   md:text-2xl text-xs sm:text-xl font-semibold">
                 <p className=" sm:mb-1 border-r-2 md:border-r-4 px-1  md:px-3  border-black ">
                   {new Date(event.fieldData["date-2"]).toDateString()}
                 </p>
@@ -204,7 +197,7 @@ const EventDetail = () => {
             </div>
           </div>
           <motion.div style={{ scale: s4 }} className="p-2 sm:p-5">
-            <p className="text-sm md:text-3xl   font-sans leading-relaxed  text-center font-semibold">
+            <p className="text-sm md:text-2xl   font-sans  leading-6 md:leading-[3rem]  md:text-start font-semibold">
               {event.fieldData.summary}
             </p>
           </motion.div>
