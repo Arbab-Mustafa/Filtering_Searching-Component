@@ -319,3 +319,27 @@ calender*/
   color: #ccc;
   cursor: default;
 }
+
+/*  */
+
+/* Add this to your CSS file */
+.select-dropdown {
+  width: 100%; /* Ensure the dropdown takes full width */
+  border: transparent; /* Light border for the dropdown */
+  /* Rounded corners */
+  /* White background for options */
+  overflow: hidden; /* Hide overflow */
+  background-color: transparent;
+}
+
+.select-dropdown option {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Padding inside options */
+}
+
+.select-dropdown option img {
+  width: 1.5rem; /* Flag icon size */
+  height: 1.5rem; /* Flag icon size */
+  margin-right: 0.5rem; /* Space between flag and text */
+}

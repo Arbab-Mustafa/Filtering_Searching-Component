@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getWebflowData } from "./webflowController.js";
+import { getWebflowData } from "../controller/webflowController.js";
 const route = Router();
 
 // add route for webflow api
