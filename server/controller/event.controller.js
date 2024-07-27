@@ -15,6 +15,21 @@ export const getAllEvents = async (req, res) => {
   }
 };
 
+export const getEventById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const event = await Event.findById(id);
+    if (!event) {
+      return res.status(404).json({ message: "Event not found!" });
+    }
+    res.status(200).json(event);
+  } catch (error) {
+    console.log("Error getting event by ID:", error);
+    res.status(500).json({ error: "Something went wrong!" });
+  }
+};
+
 export const createEvent = async (req, res) => {
   const newEvent = new Event({ fieldData: req.body.fieldData });
   console.log("New Event:", newEvent);

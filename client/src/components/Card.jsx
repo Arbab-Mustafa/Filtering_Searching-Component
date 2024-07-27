@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -18,7 +19,7 @@ const Card = ({ event }) => {
 
   //
   let recomend = event.fieldData.recommend;
-  let guestlist = event.fieldData["guestlist-2"];
+  let guestlist = event.fieldData.guestlist;
 
   // Framer Motion useScroll hook
   const { scrollYProgress } = useScroll({
@@ -89,10 +90,10 @@ const Card = ({ event }) => {
             } w-1/3 md:pr-4 pr-2 overflow-hidden`}
           >
             <Link
-              to={`/event/${event.id}`}
+              to={`/event/${event._id}`}
               onClick={(e) => {
                 e.preventDefault();
-                handleClick(`/event/${event.id}`);
+                handleClick(`/event/${event._id}`);
               }}
             >
               <div
@@ -100,10 +101,8 @@ const Card = ({ event }) => {
                   md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
               >
                 <img
-                  src={event.fieldData["main-image"].url}
-                  alt={
-                    event.fieldData["main-image"].alt || event.fieldData.name
-                  }
+                  src={event.fieldData.Main_Image}
+                  alt={event.fieldData.name}
                   className={`  ${
                     recomend ? "" : ""
                   } w-full h-full object-cover md:img-radius`}
@@ -121,10 +120,10 @@ const Card = ({ event }) => {
             {/* Event name */}
             <h3 className="text-sm md:text-3xl font-semibold md:font-bold mb-2">
               <Link
-                to={`/event/${event.id}`}
+                to={`/event/${event._id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleClick(`/event/${event.id}`);
+                  handleClick(`/event/${event._id}`);
                 }}
               >
                 {event.fieldData.name}
@@ -138,10 +137,10 @@ const Card = ({ event }) => {
               }  flex flex-col sm:flex-row gap-0.5 sm:gap-1 md:gap-4`}
             >
               <Link
-                to={`/event/${event.id}`}
+                to={`/event/${event._id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleClick(`/event/${event.id}`);
+                  handleClick(`/event/${event._id}`);
                 }}
               >
                 <span className="flex  sm:gap-1 md:justify-center justify-start items-center text-xs md:text-xl">
@@ -157,15 +156,15 @@ const Card = ({ event }) => {
                       recomend ? "right-color" : ""
                     }  md:text-gray-500 mb-1`}
                   >
-                    {event.fieldData["venue-name"]}
+                    {event.fieldData.venueName}
                   </p>
                 </span>
               </Link>
               <Link
-                to={`/event/${event.id}`}
+                to={`/event/${event._id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleClick(`/event/${event.id}`);
+                  handleClick(`/event/${event._id}`);
                 }}
               >
                 <span className="md:flex gap-0 sm:gap-1 justify-center items-center text-sm md:text-xl hidden">
@@ -187,13 +186,13 @@ const Card = ({ event }) => {
             <div>
               <p className="text-gray-900 hidden md:block">
                 <Link
-                  to={`/event/${event.id}`}
+                  to={`/event/${event._id}`}
                   onClick={(e) => {
                     e.preventDefault();
-                    handleClick(`/event/${event.id}`);
+                    handleClick(`/event/${event._id}`);
                   }}
                 >
-                  {event.fieldData.summary}
+                  {event.fieldData.Details}
                 </Link>
               </p>
             </div>
@@ -201,7 +200,7 @@ const Card = ({ event }) => {
             {/* People, Genre, and Value */}
             <div className="flex sm:flex-row gap-1 flex-wrap sm:gap-4 text-sm md:text-base md:justify-between my-2 md:w-[25vw]">
               {/* People attending */}
-              <Link to={`/event/${event.id}`}>
+              <Link to={`/event/${event._id}`}>
                 <span className="flex gap-1 sm:gap-3 items-center justify-start md:justify-between">
                   <p
                     className={`${
@@ -210,15 +209,15 @@ const Card = ({ event }) => {
                   >
                     <BsFillPeopleFill />
                   </p>
-                  <p className="text-xs md:text-xl">{event.fieldData["18"]}</p>
+                  <p className="text-xs md:text-xl">{event.fieldData.minAge}</p>
                 </span>
               </Link>
               {/* Genre */}
               <Link
-                to={`/event/${event.id}`}
+                to={`/event/${event._id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleClick(`/event/${event.id}`);
+                  handleClick(`/event/${event._id}`);
                 }}
               >
                 <span className="flex gap-1 sm:gap-3 justify-start items-center md:justify-between">
@@ -230,7 +229,7 @@ const Card = ({ event }) => {
                     <RiFileMusicFill />
                   </p>
                   <p className="text-xs md:text-xl">
-                    {event.fieldData["genres-1"]}
+                    {event.fieldData.genres1}
                   </p>
                 </span>
               </Link>
@@ -254,7 +253,7 @@ const Card = ({ event }) => {
                 <p className="md:text-customBlue text-3xl">
                   <MdOutlineAccessTime />
                 </p>
-                <p>{event.fieldData["time-3"]}</p>
+                <p>{event.fieldData.StartTime}</p>
               </span>
               {/* Value */}
               <span className="flex gap-1 sm:gap-3 justify-start items-center md:justify-between">
@@ -288,7 +287,7 @@ const Card = ({ event }) => {
                 </span>
               ) : (
                 <a
-                  href={event.fieldData.tickets}
+                  href={event.fieldData.Ticketlink}
                   target="_blank"
                   rel="noreferrer"
                 >

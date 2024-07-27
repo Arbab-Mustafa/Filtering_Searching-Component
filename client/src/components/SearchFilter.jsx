@@ -33,16 +33,22 @@ const SearchFilter = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        "https://database-five-sepia.vercel.app/"
-      );
-      const data = response.data.items;
+      const response = await axios.get("/getAllEvents");
+      const data = response.data;
+
+      if (!Array.isArray(data)) {
+        throw new Error("Expected response data to be an array");
+      }
 
       // Sort events by date
-      const sortedEvents = data.sort(
-        (a, b) =>
-          new Date(a.fieldData["date-2"]) - new Date(b.fieldData["date-2"])
-      );
+      const sortedEvents = data.sort((a, b) => {
+        // Convert startDate to Date objects
+        const dateA = new Date(a.fieldData.startDate);
+        const dateB = new Date(b.fieldData.startDate);
+
+        // Compare dates
+        return dateA - dateB;
+      });
       setEvents(sortedEvents);
       filterAndSetDisplayedEvents(sortedEvents); // Set displayed events after fetching
     } catch (err) {
@@ -56,19 +62,19 @@ const SearchFilter = () => {
     const normalizedSearchTerm = searchTerm.toLowerCase().trim();
     const normalizedCity = city.toLowerCase().trim();
     const normalizedDate = date
-      ? new Date(date).toLocaleDateString("en-CA")
+      ? new Date(date).toISOString().split("T")[0] // Format as YYYY-MM-DD
       : null;
 
     const filteredEvents = eventsData.filter((event) => {
       const fieldData = event.fieldData || {};
-      const eventDate = fieldData["date-2"]
-        ? new Date(fieldData["date-2"]).toLocaleDateString("en-CA")
+      const eventDate = fieldData.startDate
+        ? new Date(fieldData.startDate).toISOString().split("T")[0] // Format as YYYY-MM-DD
         : null;
       const normalizedEventName = fieldData.name
         ? fieldData.name.toLowerCase()
         : "";
-      const normalizedEventLocation = fieldData.locaition
-        ? fieldData.locaition.toLowerCase()
+      const normalizedEventLocation = fieldData.VenueAddress
+        ? fieldData.VenueAddress.toLowerCase()
         : "";
       const normalizedEventNeighborhood = fieldData.neighborhood
         ? fieldData.neighborhood.toLowerCase()
@@ -84,18 +90,18 @@ const SearchFilter = () => {
       );
     });
 
-    const currentDate = new Date().toLocaleDateString("en-CA");
+    const currentDate = new Date().toISOString().split("T")[0]; // Format as YYYY-MM-DD
     const todayEvents = filteredEvents.filter((event) => {
-      const eventDate = event.fieldData["date-2"]
-        ? new Date(event.fieldData["date-2"]).toLocaleDateString("en-CA")
+      const eventDate = event.fieldData.startDate
+        ? new Date(event.fieldData.startDate).toISOString().split("T")[0] // Format as YYYY-MM-DD
         : null;
       return eventDate && eventDate >= currentDate;
     });
 
     const groupedByDate = todayEvents.reduce((groups, event) => {
-      const eventDate = new Date(event.fieldData["date-2"]).toLocaleDateString(
-        "en-CA"
-      );
+      const eventDate = new Date(event.fieldData.startDate)
+        .toISOString()
+        .split("T")[0]; // Format as YYYY-MM-DD
       if (!groups[eventDate]) {
         groups[eventDate] = [];
       }
@@ -105,7 +111,7 @@ const SearchFilter = () => {
 
     const initialEventCounts = {};
     for (const date in groupedByDate) {
-      initialEventCounts[date] = 4;
+      initialEventCounts[date] = groupedByDate[date].length; // Count of events per date
     }
 
     // Select only the first 'daysToShow' days to display

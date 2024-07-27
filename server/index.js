@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 
-import webFlowRouter from "./routes/webflowRoute.js";
+// import webFlowRouter from "./routes/webflowRoute.js";
 import EventRouter from "./routes/EventRoute.js";
 import VenueRouter from "./routes/VenuRoute.js";
 
@@ -31,7 +31,7 @@ mongoose
 app.use("/api", EventRouter);
 app.use("/api", VenueRouter);
 
-app.use("/", webFlowRouter);
+// app.use("/", webFlowRouter);
 
 // Global error handling middleware
 app.use((err, req, res, next) => {

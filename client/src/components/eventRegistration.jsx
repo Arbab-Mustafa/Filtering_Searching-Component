@@ -57,8 +57,8 @@ const EventRegistration = ({ isOpen, onRequestClose, event }) => {
             {/* Left section with image */}
             <div className="md:w-[50%]  left-popup-img inset-0 z-[400]">
               <img
-                src={event.fieldData["main-image"].url}
-                alt={event.fieldData["main-image"].alt || event.fieldData.name}
+                src={event.fieldData.Main_Image}
+                alt={event.fieldData.name}
                 className=" w-full     md:h-[500px] md:w-full  object-contain md:object-cover rounded-lg"
               />
             </div>

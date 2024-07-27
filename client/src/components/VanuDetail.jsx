@@ -12,9 +12,11 @@ import axios from "axios";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const VenuDetail = () => {
-  const { id } = useParams();
+  const { name } = useParams();
+
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(false);
+
   //
 
   const targetRef = useRef(null);
@@ -33,11 +35,10 @@ const VenuDetail = () => {
       setLoading(true);
 
       try {
-        const response = await axios.get(
-          "https://database-five-sepia.vercel.app/"
-        );
-        const eventData = response.data.items.find((item) => item.id === id);
-        setEvent(eventData);
+        const response = await axios.get(`/getVenue/${name}`);
+        console.log(response.data);
+
+        setEvent(response.data);
       } catch (err) {
         console.error("Error fetching data:", err);
       } finally {
@@ -46,7 +47,7 @@ const VenuDetail = () => {
     };
 
     fetchEvent();
-  }, [id]);
+  }, [name]);
 
   if (!event || loading) {
     return (
@@ -55,7 +56,7 @@ const VenuDetail = () => {
       </div>
     );
   }
-  const videoUrl = event.fieldData.vedio.url;
+  const videoUrl = event.video;
 
   // Extract video ID from the URL
   const videoId = new URL(videoUrl).searchParams.get("v");
@@ -69,36 +70,36 @@ const VenuDetail = () => {
       <div className="w-7/10 mx-auto">
         <div className="md:mb-16 md:gap-3 flex-wrap  md:relative ">
           {/* 1 */}
-          <div className="md:w-3/3 w-full h-auto  hidden  max-w-[780px] max-h-[810px] overflow-hidden rounded-sm sm:z-0">
-            <motion.img
-              src={event.fieldData["main-image"].url}
-              alt={event.fieldData["main-image"].alt || event.fieldData.name}
+          <div className="md:w-3/3 w-full h-auto    max-w-[780px] max-h-[810px] overflow-hidden rounded-sm sm:z-0">
+            <img
+              src={event.mainImage}
+              alt={event.name}
               className="w-full h-full object-cover rounded-sm"
             />
           </div>
 
           {/* 3 */}
-          <motion.div className=" w-full  card  sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
+          <motion.div className="md:absolute  w-full md:w-[50rem] card right-1 md:-bottom-32 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
             <div className=" md:py-2 md:px-3 p-1  ">
               <h1 className=" text-3xl md:text-6xl font-bold mb-4 font-serif md:p-2 p-1">
-                {event.fieldData["venue-name"]}
+                {event.name}
               </h1>
 
               <div className=" py-1 text-wrap  md:w-[40vw]  ">
                 <p className="sm:mb-1  text-sm md:text-2xl text-wrap font-sans font-semibold  ">
-                  {event.fieldData.locaition}
+                  {event.locaition}
                 </p>
               </div>
 
               <div className="md:py-2   md:text-xl">
                 <p className="md:py-2 flex  gap-2 md:gap-6">
                   <span className="text-gray-500  ">Min . Age </span>
-                  <span className="font-semibold">{event.fieldData["18"]}</span>
+                  <span className="font-semibold">{event.minAge}</span>
                 </p>
 
                 <p className="md:py-2 flex gap-2  md:gap-6">
                   <span className="text-gray-500  ">Cost </span>
-                  <span className="font-semibold">${event.fieldData.valu}</span>
+                  <span className="font-semibold">${event.cost}</span>
                 </p>
 
                 <p className="md:py-2 flex gap-2 md:gap-6">
@@ -106,7 +107,7 @@ const VenuDetail = () => {
                     DO you have a question
                   </span>
                   <span className="font-semibold underline text-color">
-                    Contact the Promoter
+                    <Link to={event.promoterLink}>Contact the Promoter</Link>
                   </span>
                 </p>
               </div>
@@ -125,23 +126,23 @@ const VenuDetail = () => {
               </h3>
               <motion.div className=" flex gap-1  sm:gap-2  flex-wrap">
                 <div className="bg-blue-500 rounded-full text-white p-2">
-                  <Link to={event.fieldData["social-fb-link"]}>
+                  <Link to={event.facebookLink}>
                     <FaFacebookF className="text-xl sm:text-3xl" />
                   </Link>
                 </div>
                 <div className="instagram-bg  rounded-full text-white p-2">
-                  <Link to={event.fieldData["social-tw-link"]}>
+                  <Link to={event.twitterLink}>
                     <FaInstagram className="text-xl sm:text-3xl" />
                   </Link>
                 </div>
 
                 <div className="bg-green-500 rounded-full text-white p-2">
-                  <Link to={event.fieldData["social-wt-link"]}>
+                  <Link to={event.whatsappLink}>
                     <FaWhatsapp className="text-xl sm:text-3xl" />
                   </Link>
                 </div>
                 <div className="bg-yellow-400 rounded-full text-white p-2">
-                  <Link to={event.fieldData["social-other-link"]}>
+                  <Link to={event.venueMail}>
                     {" "}
                     <IoLink className="text-xl sm:text-3xl" />{" "}
                   </Link>
@@ -151,13 +152,13 @@ const VenuDetail = () => {
           </div>
           <motion.div className="p-2 sm:p-5">
             <p className="text-sm md:text-2xl   font-sans  leading-6 md:leading-[3rem]  md:text-start font-semibold">
-              {event.fieldData.summary}
+              {event.summary}
             </p>
           </motion.div>
         </div>
         {/* vedio-- */}
 
-        {event.fieldData.vedio && (
+        {event.video && (
           <div className="mb-4 md:my-7 py-2 md:py-4">
             <h3 className="text-2xl md:text-4xl font-bold font-serif mb-2 md:py-6 text-center">
               Media Video
@@ -182,7 +183,7 @@ const VenuDetail = () => {
           </h3>
           <div className="h-[25rem]  md:h-[30rem]">
             <iframe
-              src={event.fieldData.map}
+              src={event.venuesMap}
               width="100%"
               height="300"
               frameBorder="0"
