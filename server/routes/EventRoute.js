@@ -3,7 +3,7 @@ import {
   getAllEvents,
   createEvent,
   getEventById,
-} from "../controller/event.controller.js";
+} from "../controller/eventcontroller.js";
 
 const route = Router();
 

@@ -8,7 +8,6 @@ const venueSchema = new mongoose.Schema(
     },
     slug: {
       type: String,
-      required: [true, "Slug is required"],
     },
 
     createdOn: {
@@ -89,7 +88,6 @@ const venueSchema = new mongoose.Schema(
     },
     meta: {
       type: String,
-      required: [true, "Meta is required"],
     },
   },
   { timestamps: true }
@@ -97,6 +95,17 @@ const venueSchema = new mongoose.Schema(
 
 venueSchema.pre("save", function (next) {
   this.updatedOn = Date.now();
+
+  // Generate slug if not provided
+  if (!this.slug && this.name) {
+    this.slug = slugify(this.name, { lower: true, strict: true });
+  }
+
+  // Generate meta if not provided
+  if (!this.meta && this.name) {
+    this.meta = `Wild & Free - ${this.name}`;
+  }
+
   next();
 });
 

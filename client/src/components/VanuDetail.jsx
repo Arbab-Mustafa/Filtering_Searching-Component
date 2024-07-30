@@ -92,6 +92,11 @@ const VenuDetail = () => {
               </div>
 
               <div className="md:py-2   md:text-xl">
+                <div className=" py-1">
+                  <p className="sm:mb-1   text-sm md:text-2xl font-sans font-semibold  w-full md:w-[50vw]">
+                    {event.location}
+                  </p>
+                </div>
                 <p className="md:py-2 flex  gap-2 md:gap-6">
                   <span className="text-gray-500  ">Min . Age </span>
                   <span className="font-semibold">{event.minAge}</span>

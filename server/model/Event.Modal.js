@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import slugify from "slugify";
 
 const eventSchema = new mongoose.Schema(
   {
@@ -94,7 +95,6 @@ const eventSchema = new mongoose.Schema(
       },
       slug: {
         type: String,
-        required: [true, "Slug is required"],
       },
       cities: {
         type: String,
@@ -105,7 +105,6 @@ const eventSchema = new mongoose.Schema(
       },
       meta: {
         type: String,
-        default: "",
       },
       Main_Image: {
         type: String,
@@ -142,11 +141,28 @@ const eventSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+//
+
 eventSchema.pre("save", function (next) {
   this.fieldData.UpdatedOn = Date.now();
+
+  // Generate slug if not provided
+  if (!this.fieldData.slug && this.fieldData.name) {
+    this.fieldData.slug = slugify(this.fieldData.name, {
+      lower: true,
+      strict: true,
+    });
+  }
+
+  // Generate meta if not provided
+  if (!this.fieldData.meta && this.fieldData.name) {
+    this.fieldData.meta = `Wild & Free - ${this.fieldData.name}`;
+  }
+
   next();
 });
 
+//
 const Event = mongoose.model("Event", eventSchema);
 
 export default Event;

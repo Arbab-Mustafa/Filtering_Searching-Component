@@ -6,8 +6,11 @@ import helmet from "helmet";
 // import webFlowRouter from "./routes/webflowRoute.js";
 import EventRouter from "./routes/EventRoute.js";
 import VenueRouter from "./routes/VenuRoute.js";
+import GuestListRouter from "./routes/eventGuestRoute.js";
+import EmailListRouter from "./routes/EmailListRoute.js";
 
 import mongoose from "mongoose";
+
 dotenv.config();
 
 const app = express();
@@ -30,6 +33,8 @@ mongoose
 
 app.use("/api", EventRouter);
 app.use("/api", VenueRouter);
+app.use("/api", GuestListRouter);
+app.use("/api", EmailListRouter);
 
 // app.use("/", webFlowRouter);
 
