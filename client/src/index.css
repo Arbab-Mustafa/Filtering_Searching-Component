@@ -343,3 +343,21 @@ calender*/
   height: 1.5rem; /* Flag icon size */
   margin-right: 0.5rem; /* Space between flag and text */
 }
+
+/* ---------------------------------Form-------------------------------------- */
+/* Navbar.css */
+.bg-color {
+  background: transparent; /* Black with 20% opacity */
+  backdrop-filter: blur(30px); /* Blur effect */
+  -webkit-backdrop-filter: blur(30px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Optional: Light border to enhance glass effect */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* for Internet Explorer and Edge */
+  scrollbar-width: none; /* for Firefox */
+}

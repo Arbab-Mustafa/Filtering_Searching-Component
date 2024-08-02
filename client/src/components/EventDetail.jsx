@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import Loader from "./loading";
 
 import { FaFacebookF } from "react-icons/fa";
 
@@ -12,6 +11,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { IoLink } from "react-icons/io5";
 import axios from "axios";
 import EventRegistration from "./eventRegistration";
+import Loader from "./loading";
 
 const EventDetail = () => {
   const { id } = useParams();

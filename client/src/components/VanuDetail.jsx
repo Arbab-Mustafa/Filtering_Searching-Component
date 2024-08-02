@@ -36,7 +36,6 @@ const VenuDetail = () => {
 
       try {
         const response = await axios.get(`/getVenue/${name}`);
-        console.log(response.data);
 
         setEvent(response.data);
       } catch (err) {

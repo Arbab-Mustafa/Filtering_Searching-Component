@@ -42,3 +42,26 @@ export const createEvent = async (req, res) => {
     res.status(500).json({ error: "Something went wrong!" });
   }
 };
+
+export const getEventByCity = async (req, res) => {
+  const { city } = req.params; // Extract the city parameter from the route
+  console.log("Searching for events in city:", city);
+
+  try {
+    // Query by the cities field
+    const events = await Event.find({ "fieldData.cities": { $in: [city] } });
+
+    console.log("Events found:", events);
+
+    if (events.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No events found for this city!" });
+    }
+
+    res.status(200).json(events);
+  } catch (error) {
+    console.log("Error getting events by city:", error);
+    res.status(500).json({ error: "Something went wrong!" });
+  }
+};

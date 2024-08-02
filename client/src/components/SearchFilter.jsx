@@ -229,7 +229,7 @@ const SearchFilter = () => {
               )}
             </div>
 
-            <label className="flex items-center bg-white relative z-[180] py-2 px-1 rounded-lg w-[100%] md:w-52 flex-grow cursor-pointer shadow-md border border-gray-300">
+            <label className="flex items-center bg-white relative z-[170] py-2 px-1 rounded-lg w-[100%] md:w-52 flex-grow cursor-pointer shadow-md border border-gray-300">
               <DatePicker
                 selected={date}
                 onChange={(e) => setDate(e)}
