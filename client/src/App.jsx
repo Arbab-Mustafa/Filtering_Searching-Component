@@ -5,12 +5,10 @@ import axios from "axios";
 import {
   CityWiseEvent,
   EventDetail,
-  Footer,
   SearchFilter,
   VenuDetail,
 } from "./components";
 import AddEvent from "./pages/addNewEvent";
-import Navbar from "./components/navbar";
 
 axios.defaults.baseURL = "http://localhost:3001/api";
 
@@ -18,7 +16,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
         <Routes>
           <Route path="/" element={<SearchFilter />} />
           <Route path="/event/:id" element={<EventDetail />} />
@@ -27,7 +24,6 @@ function App() {
           <Route path="/venu/:name" element={<VenuDetail />} />
           <Route path="/cities/:city" element={<CityWiseEvent />} />
         </Routes>
-        <Footer />
       </div>
     </Router>
   );

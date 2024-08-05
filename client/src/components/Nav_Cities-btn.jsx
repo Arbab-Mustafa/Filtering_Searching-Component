@@ -35,6 +35,9 @@ const CityBtn = () => {
     // Call the async function
     fetchEvents();
   }, []);
+  const sortedCities = Array.from(new Set(city)).sort((a, b) =>
+    a.localeCompare(b)
+  );
 
   return (
     <div>
@@ -55,7 +58,7 @@ const CityBtn = () => {
       {isOpen && (
         <div>
           <ul className="flex flex-col gap-3  items-center md:items-start font-[Inter]">
-            {Array.from(new Set(city)).map((ci, index) => (
+            {sortedCities.map((ci, index) => (
               <Link to={`/cities/${ci}`} key={index}>
                 <li className="text-base font-medium">{ci}</li>
               </Link>

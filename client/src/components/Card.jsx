@@ -28,8 +28,7 @@ const Card = ({ event }) => {
   });
 
   // Framer Motion useTransform hooks for animation
-  const scale = useTransform(scrollYProgress, [0, 0.7, 1], [0.97, 0.99, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [0.9, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.7, 1], [0.98, 0.99, 1]);
 
   // Function to open the modal
   const openModal = () => {
@@ -52,7 +51,7 @@ const Card = ({ event }) => {
       {/* Framer Motion motion.div for animation */}
       <motion.div
         ref={targetRef}
-        style={{ opacity, scale }}
+        style={{ scale }}
         className="w-full overflow-hidden relative rounded-lg md:border my-0 md:my-3 md:border-blue-400 md:py-2 md:px-2 p-1"
       >
         {event.fieldData.neighborhood && (

@@ -346,8 +346,8 @@ calender*/
 
 /* ---------------------------------Form-------------------------------------- */
 /* Navbar.css */
-.bg-color {
-  background: transparent; /* Black with 20% opacity */
+.bgcolor {
+  background: #408dbc; /* Black with 20% opacity */
   backdrop-filter: blur(30px); /* Blur effect */
   -webkit-backdrop-filter: blur(30px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.4); /* Optional: Light border to enhance glass effect */
@@ -361,3 +361,10 @@ calender*/
   -ms-overflow-style: none; /* for Internet Explorer and Edge */
   scrollbar-width: none; /* for Firefox */
 }
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+/* ----------------------------------------- */

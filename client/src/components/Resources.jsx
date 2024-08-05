@@ -26,9 +26,6 @@ const Resources = () => {
       {isOpen && (
         <div>
           <ul className="flex flex-col gap-4 items-end   font-[Inter]">
-            <Link to="https://www.wildandfree.us/submit-an-event-old">
-              <li className=" text-base  font-medium ">Submit An Event Page</li>
-            </Link>
             <Link to="https://www.wildandfree.us/contact-us">
               <li className=" text-base   font-medium ">Contact Page</li>
             </Link>

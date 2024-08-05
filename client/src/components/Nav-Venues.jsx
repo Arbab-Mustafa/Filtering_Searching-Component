@@ -25,6 +25,7 @@ const Resources = () => {
       console.log(error);
     }
   };
+  const sortedVenue = [...venue].sort((a, b) => a.localeCompare(b));
 
   return (
     <div>
@@ -41,9 +42,9 @@ const Resources = () => {
       </div>
 
       {isOpen && (
-        <div className="  w-[15rem] md:w-[60rem] h-[10rem] md:h-[20rem]  scrollbar-hidden  text-white overflow-y-scroll z-[9999] ">
+        <div className="  w-[15rem] md:w-[60rem] h-[10rem] md:h-[20rem]  scrollbar-hidden  text-white overflow-y-scroll  ">
           <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 font-[Inter]">
-            {venue.map((city, index) => (
+            {sortedVenue.map((city, index) => (
               <Link to={`/venu/${city}`} key={index}>
                 <li className="text-xs md:textxl">{city}</li>
               </Link>

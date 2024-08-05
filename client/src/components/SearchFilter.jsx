@@ -273,7 +273,7 @@ const SearchFilter = () => {
           {Object.keys(displayedEvents).length > 0
             ? Object.keys(displayedEvents).map((date) => (
                 <div key={date} className="md:mb-8">
-                  <div className="sticky top-0 bg-opacity-70 backdrop-blur-md z-10 py-2 md:py-4 md:mb-3 px-2 md:px-4 rounded-md">
+                  <div className="sticky top-0 bg-opacity-70 backdrop-blur-md z-[10] py-2 md:py-4 md:mb-3 px-2 md:px-4 rounded-md">
                     <h3 className="text-xl md:text-4xl font-semibold md:text-yellow-500">
                       {dateIntoString(date)}
                     </h3>
