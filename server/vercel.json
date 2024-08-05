@@ -4,7 +4,24 @@
     {
       "src": "index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "routes/**/*.js",
+      "use": "@vercel/node"
     }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "/index.js" }]
+  "routes": [
+    { "src": "/api/getAllEmailList", "dest": "/routes/EmailListRoute.js" },
+    { "src": "/api/createEmailList", "dest": "/routes/EmailListRoute.js" },
+    { "src": "/api/getAllEventGuests", "dest": "/routes/eventGuestRoute.js" },
+    { "src": "/api/createEventGuest", "dest": "/routes/eventGuestRoute.js" },
+    { "src": "/api/getAllEvents", "dest": "/routes/EventRoute.js" },
+    { "src": "/api/getEvent/:id", "dest": "/routes/EventRoute.js" },
+    { "src": "/api/getEvents/:city", "dest": "/routes/EventRoute.js" },
+    { "src": "/api/createEvent", "dest": "/routes/EventRoute.js" },
+    { "src": "/api/getAllVenues", "dest": "/routes/VenuRoute.js" },
+    { "src": "/api/getVenue/:name", "dest": "/routes/VenuRoute.js" },
+    { "src": "/api/createVenue", "dest": "/routes/VenuRoute.js" },
+    { "src": "/(.*)", "dest": "/index.js" }
+  ]
 }
