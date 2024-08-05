@@ -6,8 +6,8 @@ import {
 
 const route = Router();
 
-route.get("/getAllEventGuests", getAllEventGuests);
+route.get("/", getAllEventGuests);
 
-route.post("/createEventGuest", createEventGuest);
+route.post("/", createEventGuest);
 
 export default route;

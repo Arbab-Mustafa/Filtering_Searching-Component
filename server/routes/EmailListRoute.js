@@ -7,8 +7,8 @@ import {
 
 const route = Router();
 
-route.get("/getAllEmailList", getAllEmailList);
+route.get("/", getAllEmailList);
 
-route.post("/createEmailList", createEmailList);
+route.post("/", createEmailList);
 
 export default route;
