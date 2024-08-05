@@ -7,8 +7,8 @@ import {
 
 const route = Router();
 
-route.get("/", getAllVenus);
-route.get("/:name", getVenue);
-route.post("/", createVenue);
+route.get("/getAllVenues", getAllVenus);
+route.get("/getVenue/:name", getVenue);
+route.post("/createVenue", createVenue);
 
 export default route;

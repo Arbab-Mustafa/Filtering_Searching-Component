@@ -29,10 +29,10 @@ mongoose
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 
 // Define base paths for API routes
-app.use("/api/events", EventRouter);
-app.use("/api/venues", VenueRouter);
-app.use("/api/guests", GuestListRouter);
-app.use("/api/emails", EmailListRouter);
+app.use("/api", EventRouter);
+app.use("/api", VenueRouter);
+app.use("/api", GuestListRouter);
+app.use("/api", EmailListRouter);
 
 // Default response for root
 

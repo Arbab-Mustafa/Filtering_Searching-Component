@@ -8,9 +8,9 @@ import {
 
 const route = Router();
 
-route.get("/", getAllEvents);
-route.get("/:id", getEventById);
-route.get("/:city", getEventByCity);
-route.post("/", createEvent);
+route.get("/getAllEvents", getAllEvents);
+route.get("/getEvent/:id", getEventById);
+route.get("/getEvents/:city", getEventByCity);
+route.post("/createEvent", createEvent);
 
 export default route;
