@@ -10,7 +10,7 @@ import {
 } from "./components";
 import AddEvent from "./pages/addNewEvent";
 
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "http://localhost:3001/api";
 
 function App() {
   return (

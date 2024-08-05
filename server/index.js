@@ -2,15 +2,13 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-
+import mongoose from "mongoose";
 import {
   EventRouter,
   VenueRouter,
   GuestListRouter,
   EmailListRouter,
-} from "./routes/index.js";
-
-import mongoose from "mongoose";
+} from "./routes/index.js"; // Ensure this imports all routers correctly
 
 dotenv.config();
 
@@ -21,23 +19,25 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 
-// connecting to Database
-
+// Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(console.log("Connecting to Database"))
-  .catch((err) => {
-    console.log("Error connecting to MongoDB:", err);
-  });
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to Database"))
+  .catch((err) => console.error("Error connecting to MongoDB:", err));
 
-// Use the Event&Venu for handling routes
+// Define base paths for API routes
+app.use("/api/events", EventRouter);
+app.use("/api/venues", VenueRouter);
+app.use("/api/guests", GuestListRouter);
+app.use("/api/emails", EmailListRouter);
 
-app.use("/api", EventRouter);
-app.use("/api", VenueRouter);
-app.use("/api", GuestListRouter);
-app.use("/api", EmailListRouter);
-
-// app.use("/", webFlowRouter);
+// Default response for root
+app.get("/", (req, res) => {
+  res.send("Welcome to the API");
+});
 
 // Global error handling middleware
 app.use((err, req, res, next) => {
