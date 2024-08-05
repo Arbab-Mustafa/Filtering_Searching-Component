@@ -3,11 +3,12 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 
-// import webFlowRouter from "./routes/webflowRoute.js";
-import EventRouter from "./routes/EventRoute.js";
-import VenueRouter from "./routes/VenuRoute.js";
-import GuestListRouter from "./routes/eventGuestRoute.js";
-import EmailListRouter from "./routes/EmailListRoute.js";
+import {
+  EventRouter,
+  VenueRouter,
+  GuestListRouter,
+  EmailListRouter,
+} from "./routes/index.js";
 
 import mongoose from "mongoose";
 
@@ -31,13 +32,10 @@ mongoose
 
 // Use the Event&Venu for handling routes
 
-app.use("/", EventRouter);
-app.use("/", VenueRouter);
-app.use("/", GuestListRouter);
-app.use("/", EmailListRouter);
-app.get("/", (req, res) => {
-  res.send("Welcome to the API");
-});
+app.use("/api", EventRouter);
+app.use("/api", VenueRouter);
+app.use("/api", GuestListRouter);
+app.use("/api", EmailListRouter);
 
 // app.use("/", webFlowRouter);
 
