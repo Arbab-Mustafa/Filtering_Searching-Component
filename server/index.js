@@ -35,9 +35,6 @@ app.use("/api/guests", GuestListRouter);
 app.use("/api/emails", EmailListRouter);
 
 // Default response for root
-app.get("/", (req, res) => {
-  res.send("Welcome to the API");
-});
 
 // Global error handling middleware
 app.use((err, req, res, next) => {
