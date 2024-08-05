@@ -31,10 +31,10 @@ mongoose
 
 // Use the Event&Venu for handling routes
 
-app.use("/api", EventRouter);
-app.use("/api", VenueRouter);
-app.use("/api", GuestListRouter);
-app.use("/api", EmailListRouter);
+app.use("/", EventRouter);
+app.use("/", VenueRouter);
+app.use("/", GuestListRouter);
+app.use("/", EmailListRouter);
 
 // app.use("/", webFlowRouter);
 
