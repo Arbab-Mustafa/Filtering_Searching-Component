@@ -8,7 +8,23 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/events/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/api/venues/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/api/guests/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/api/emails/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/(.*)",
       "dest": "/index.js"
     }
   ]
