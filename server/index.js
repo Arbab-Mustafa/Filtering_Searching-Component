@@ -35,6 +35,9 @@ app.use("/", EventRouter);
 app.use("/", VenueRouter);
 app.use("/", GuestListRouter);
 app.use("/", EmailListRouter);
+app.get("/", (req, res) => {
+  res.send("Welcome to the API");
+});
 
 // app.use("/", webFlowRouter);
 
