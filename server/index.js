@@ -3,12 +3,12 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import mongoose from "mongoose";
-import {
-  EventRouter,
-  VenueRouter,
-  GuestListRouter,
-  EmailListRouter,
-} from "./routes/index.js"; // Ensure this imports all routers correctly
+// Ensure this imports all routers correctly
+
+import EventRouter from "./routes/EventRoute.js";
+import VenueRouter from "./routes/VenuRoute.js";
+import GuestListRouter from "./routes/eventGuestRoute.js";
+import EmailListRouter from "./routes/EmailListRoute.js";
 
 dotenv.config();
 
@@ -21,18 +21,15 @@ app.use(helmet());
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to Database"))
-  .catch((err) => console.error("Error connecting to MongoDB:", err));
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("MongoDB connected..."))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 // Define base paths for API routes
-app.use("/api", EventRouter);
-app.use("/api", VenueRouter);
-app.use("/api", GuestListRouter);
-app.use("/api", EmailListRouter);
+app.use("/events", EventRouter); // Grouping routes under specific paths for clarity
+app.use("/venues", VenueRouter); // Corrected typo
+app.use("/guestlists", GuestListRouter);
+app.use("/emaillists", EmailListRouter);
 
 // Default response for root
 

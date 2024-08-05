@@ -18,7 +18,9 @@ const Resources = () => {
   };
   const VenuesData = async () => {
     try {
-      const response = await axios.get("/getAllVenues");
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/venues/getAllVenues`
+      );
       const fetchedVenues = response.data.map((event) => event.name);
       setVenue(fetchedVenues);
     } catch (error) {

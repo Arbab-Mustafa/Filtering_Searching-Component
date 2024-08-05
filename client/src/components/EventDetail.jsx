@@ -46,7 +46,9 @@ const EventDetail = () => {
       setLoading(true);
 
       try {
-        const response = await axios.get(`/getEvent/${id}`);
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/events/getEvent/${id}`
+        );
 
         setEvent(response.data);
         setLoading(false);

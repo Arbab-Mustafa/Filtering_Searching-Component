@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Link } from "react-router-dom";
 import Card from "./Card";
 import { CiLocationOn, CiCalendar, CiSearch } from "react-icons/ci";
 import Loader from "./loading";
@@ -33,7 +33,9 @@ const SearchFilter = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("/getAllEvents");
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/events/getAllEvents`
+      );
       const data = response.data;
 
       if (!Array.isArray(data)) {

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import axios from "axios";
 import {
   CityWiseEvent,
   EventDetail,
@@ -9,8 +8,6 @@ import {
   VenuDetail,
 } from "./components";
 import AddEvent from "./pages/addNewEvent";
-
-axios.defaults.baseURL = "http://localhost:3001/api";
 
 function App() {
   return (

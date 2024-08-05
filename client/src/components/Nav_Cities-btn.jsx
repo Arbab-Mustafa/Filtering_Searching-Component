@@ -20,7 +20,9 @@ const CityBtn = () => {
     // Define the async function
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("/getAllEvents");
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/events/getAllEvents`
+        );
         const fetchedCities = response.data
           .flatMap((event) => event.fieldData.cities) // Flatten the array if needed
           .filter((city, index, self) => self.indexOf(city) === index); // Remove duplicates
