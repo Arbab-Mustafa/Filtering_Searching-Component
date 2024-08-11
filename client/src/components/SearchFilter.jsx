@@ -78,8 +78,8 @@ const SearchFilter = () => {
       const normalizedEventLocation = fieldData.VenueAddress
         ? fieldData.VenueAddress.toLowerCase()
         : "";
-      const normalizedEventNeighborhood = fieldData.neighborhood
-        ? fieldData.neighborhood.toLowerCase()
+      const normalizedEventNeighborhood = fieldData.cities
+        ? fieldData.cities.toLowerCase()
         : "";
 
       return (
