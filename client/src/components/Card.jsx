@@ -69,7 +69,7 @@ const Card = ({ event }) => {
         <div
           className={`${
             recomend ? "card-img" : ""
-          }  md:card z-10 md:p-2 p-1 my-1 md:my-2 border md:border-none border-gray-200 rounded-sm md:rounded-lg   flex gap-2 md:gap-5 sm:justify-evenly relative`}
+          }  md:card z-10 md:p-2 p-1 my-1 md:my-2 border md:border-none border-transparent rounded-sm md:rounded-lg   flex gap-2 md:gap-5 sm:justify-evenly relative`}
         >
           {/* Conditio nally render recommendation tag */}
           {recomend && (
@@ -142,7 +142,7 @@ const Card = ({ event }) => {
                   handleClick(`/event/${event._id}`);
                 }}
               >
-                <span className="flex  sm:gap-1 md:justify-center justify-start items-center text-xs md:text-xl">
+                <span className="flex  gap-1 md:justify-center justify-start items-center text-xs md:text-xl">
                   <p
                     className={` ${
                       recomend ? "right-color" : ""
@@ -175,7 +175,7 @@ const Card = ({ event }) => {
                       recomend ? "right-color" : ""
                     }  text-gray-500 mb-1`}
                   >
-                    {event.fieldData.neighborhood}
+                    {event.fieldData.cities}
                   </p>
                 </span>
               </Link>
@@ -241,7 +241,7 @@ const Card = ({ event }) => {
                 >
                   <RiMoneyDollarCircleFill />
                 </p>
-                <p className="text-xs md:text-xl">{event.fieldData.valu}</p>
+                <p className="text-xs md:text-xl">{event.fieldData.cost}</p>
               </span>
             </div>
 
@@ -259,7 +259,7 @@ const Card = ({ event }) => {
                 <p className="text-gray-500 md:text-customBlue text-sm md:text-3xl">
                   <RiMoneyDollarCircleFill />
                 </p>
-                <p className="text-sm md:text-xl">{event.fieldData.valu}</p>
+                <p className="text-sm md:text-xl">{event.fieldData.cost}</p>
               </span>
             </div>
 
@@ -270,7 +270,7 @@ const Card = ({ event }) => {
                 onClick={openModal}
                 className={` ${
                   recomend ? "right-color-button" : ""
-                }  bg-yellow-300 btn1 py-2 px-3 md:px-4 md:py-2  rounded-full  md:rounded-lg md:font-semibold cursor-pointer`}
+                }  bg-yellow-300 btn1   md:px-4   flex justify-center items-center  rounded-full  md:rounded-lg md:font-semibold cursor-pointer`}
               >
                 Listen
               </span>
@@ -279,7 +279,7 @@ const Card = ({ event }) => {
                 <span
                   className={` ${
                     recomend ? "right-color-button" : ""
-                  } p-1 btn2 bg-color text-white md:px-4 md:py-2 rounded-2xl md:rounded-lg md:font-semibold cursor-pointer`}
+                  } p-1 btn2 bg-color text-white md:px-4 md:py-2 rounded-2xl md:rounded-lg md:font-semibold cursor-pointer flex justify-center items-center`}
                   onClick={openModal}
                 >
                   Guest List
@@ -293,7 +293,7 @@ const Card = ({ event }) => {
                   <span
                     className={`${
                       recomend ? "right-color-button" : ""
-                    }    text-blue-500 border border-blue-500 rounded-full text-xs  py-1 md:py-3 font-medium px-2 md:rounded-xl md:text-lg md:font-normal md:text-white md:bg-blue-500 md:px-4 flex justify-center items-center `}
+                    }    text-blue-500 border border-blue-500 rounded-full text-xs  py-1 md:py-2 font-medium px-2 md:rounded-xl md:text-lg md:font-normal md:text-white md:bg-blue-500 md:px-4 flex justify-center items-center `}
                   >
                     Buy Tickets
                   </span>

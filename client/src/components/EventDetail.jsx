@@ -14,11 +14,35 @@ import EventRegistration from "./eventRegistration";
 import Loader from "./loading";
 import Footer from "./Footer";
 import Navbar from "./navbar";
+const getUpcomingEventsForVenue = (eventsData, venueName, currentEventId) => {
+  // Get today's date in YYYY-MM-DD format
+  const currentDate = new Date();
+  currentDate.setHours(0, 0, 0, 0); // Reset time to start of the day
+  const currentDateStr = currentDate.toISOString().split("T")[0];
+
+  return eventsData.filter((event) => {
+    const fieldData = event.fieldData || {};
+    const eventDateStr = fieldData.startDate
+      ? new Date(fieldData.startDate).toISOString().split("T")[0] // Format as YYYY-MM-DD
+      : null;
+
+    // Check if the event date is valid and compare with current date
+    // Exclude the current event by checking against currentEventId
+    return (
+      fieldData.venueName === venueName &&
+      eventDateStr &&
+      eventDateStr >= currentDateStr &&
+      event._id !== currentEventId
+    );
+  });
+};
 
 const EventDetail = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [allEvents, setAllEvents] = useState([]);
 
   // /////////////
 
@@ -51,6 +75,20 @@ const EventDetail = () => {
         );
 
         setEvent(response.data);
+        const allEventsResponse = await axios.get(
+          `${process.env.REACT_APP_API_URL}/events/getAllEvents`
+        );
+        setAllEvents(allEventsResponse.data);
+
+        if (response.data) {
+          const venueName = response.data.fieldData.venueName;
+          const futureEvents = getUpcomingEventsForVenue(
+            allEventsResponse.data,
+            venueName
+          );
+          setUpcomingEvents(futureEvents);
+        }
+
         setLoading(false);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -85,13 +123,15 @@ const EventDetail = () => {
     }
   }
 
+  //
+
   return (
     <>
       <Navbar />
-      <div ref={targetRef} className="container mx-auto p-4 overflow-hidden">
+      <div ref={targetRef} className="container mx-auto p-4 overflow-hidden ">
         {/* flex-img-card */}
 
-        <motion.div className="w-7/10 mx-auto">
+        <motion.div className="w-7/10 mx-auto my-1 md:my-10">
           <motion.div className="flex md:mb-16 md:gap-3 flex-wrap  md:relative ">
             {/* 1 */}
             <div className="md:w-2/3 w-full h-auto  max-w-[680px] max-h-[810px] overflow-hidden rounded-sm sm:z-0">
@@ -126,7 +166,7 @@ const EventDetail = () => {
                   <p className=" sm:mb-1 border-r-2 md:border-r-4 px-1  md:px-3  border-black ">
                     {event.fieldData.StartTime}
                   </p>
-                  <p className="  text-blue-900 font-bold   sm:mb-1 border-r-2 md:border-r-4 px-1  md:px-3  border-black ">
+                  <p className="  text-[#408DBC] font-bold  font-sans  sm:mb-1 border-r-2 md:border-r-4 px-1  md:px-3  border-black ">
                     <Link to={`/event/${id}/venu/${event.fieldData.venueName}`}>
                       {event.fieldData.venueName}
                     </Link>
@@ -156,7 +196,7 @@ const EventDetail = () => {
 
                   <p className="md:py-2 flex gap-2 md:gap-6">
                     <span className="text-gray-500  ">
-                      DO you have a question
+                      Do you have a question
                     </span>
                     <span className="font-semibold underline text-color">
                       Contact the Promoter
@@ -246,14 +286,45 @@ const EventDetail = () => {
             </div>
           </div>
 
-          {/* last  */}
+          {/* Upcoming Events */}
           <div className="md:my-8 md:py-5 py-2 my-4">
-            <h2 className=" text-xl md:text-5xl my-2 font-serif font-semibold ">
+            <h2 className="text-xl md:text-5xl my-2 font-serif font-semibold">
               UPCOMING EVENTS
             </h2>
-            <p className="md:py-4 py-3 md:my-5 bg-color md:px-5 px-2  text-sm md:text-2xl text-white">
-              NO UPCOMING EVENT UNDER THIS VENUE
-            </p>
+            {upcomingEvents.length > 0 ? (
+              <div className="events-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+                {upcomingEvents.map((event) => (
+                  <div
+                    key={event._id}
+                    className="event-item mb-4 p-4 border w-40 md:w-56 rounded"
+                  >
+                    <Link to={`/event/${event._id}`}>
+                      <img
+                        src={event.fieldData.Main_Image}
+                        alt={event.fieldData.name}
+                        className="event-image  w-32 h-32 md:w-48 md:h-48 mx-auto"
+                      />
+                    </Link>
+                    <h3 className="event-name text-sm md:text-lg font-semibold mt-2">
+                      {event.fieldData.name}
+                    </h3>
+                    <p className="event-date mt-1 text-sm  md:text-lg">
+                      {new Date(event.fieldData.startDate).toLocaleDateString()}
+                    </p>
+                    <Link
+                      to={`/event/${event._id}`}
+                      className="details-link text-blue-500 hover:underline text-sm  md:text-lg mt-2"
+                    >
+                      View Details
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="md:py-4 py-3 md:my-5 bg-color md:px-5 px-2 text-sm md:text-2xl text-white">
+                NO UPCOMING EVENT UNDER THIS VENUE
+              </p>
+            )}
           </div>
         </motion.div>
       </div>

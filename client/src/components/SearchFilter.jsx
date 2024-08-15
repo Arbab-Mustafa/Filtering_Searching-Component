@@ -61,38 +61,46 @@ const SearchFilter = () => {
   };
 
   const filterAndSetDisplayedEvents = (eventsData = events) => {
+    const getLocalDateString = (date) => {
+      return new Date(date).toLocaleDateString("en-CA"); // 'en-CA' outputs date in 'YYYY-MM-DD' format
+    };
     const normalizedSearchTerm = searchTerm.toLowerCase().trim();
     const normalizedCity = city.toLowerCase().trim();
-    const normalizedDate = date
-      ? new Date(date).toISOString().split("T")[0] // Format as YYYY-MM-DD
-      : null;
+    const normalizedDate = date ? getLocalDateString(date) : null;
 
     const filteredEvents = eventsData.filter((event) => {
       const fieldData = event.fieldData || {};
       const eventDate = fieldData.startDate
-        ? new Date(fieldData.startDate).toISOString().split("T")[0] // Format as YYYY-MM-DD
+        ? getLocalDateString(fieldData.startDate)
         : null;
       const normalizedEventName = fieldData.name
         ? fieldData.name.toLowerCase()
         : "";
-      const normalizedEventLocation = fieldData.VenueAddress
-        ? fieldData.VenueAddress.toLowerCase()
-        : "";
-      const normalizedEventNeighborhood = fieldData.cities
-        ? fieldData.cities.toLowerCase()
+      const normalizedEventLocation = fieldData.cities
+        ? fieldData.cities.toLowerCase().trim()
         : "";
 
-      return (
-        (normalizedEventName.includes(normalizedSearchTerm) ||
-          normalizedEventLocation.includes(normalizedSearchTerm)) &&
-        (normalizedCity === "" ||
-          normalizedEventLocation.includes(normalizedCity) ||
-          normalizedEventNeighborhood.includes(normalizedCity)) &&
-        (normalizedDate === null || eventDate === normalizedDate)
-      );
+      // const normalizedEventNeighborhood = fieldData.cities
+      //   ? fieldData.cities.toLowerCase().trim()
+      //   : "";
+
+      const matchesSearchTerm =
+        normalizedEventName.includes(normalizedSearchTerm) ||
+        normalizedEventLocation.includes(normalizedSearchTerm);
+
+      const matchesCity =
+        normalizedCity === "" ||
+        (typeof normalizedEventLocation === "string" &&
+          normalizedEventLocation.includes(normalizedCity));
+
+      const matchesDate =
+        normalizedDate === null || eventDate === normalizedDate;
+
+      // Return the combined conditions
+      return matchesSearchTerm && matchesCity && matchesDate;
     });
 
-    const currentDate = new Date().toISOString().split("T")[0]; // Format as YYYY-MM-DD
+    const currentDate = getLocalDateString(new Date()); // Format as YYYY-MM-DD
     const todayEvents = filteredEvents.filter((event) => {
       const eventDate = event.fieldData.startDate
         ? new Date(event.fieldData.startDate).toISOString().split("T")[0] // Format as YYYY-MM-DD
@@ -165,7 +173,7 @@ const SearchFilter = () => {
           className="bg-teal-500 py-10 px-3 w-full rounded-xl mb-5"
           style={{ backgroundColor: "#408dbc" }}
         >
-          <h2 className="text-5xl text-white mb-10 px-5 hidden md:block font-sans font-semibold leading-5">
+          <h2 className="text-[41px] text-white mb-10 px-5 hidden md:block font-sans font-semibold leading-5">
             Latest Events and Concerts
           </h2>
           <div className="flex flex-wrap justify-between flex-col md:flex-row items-center px-3 gap-4">
@@ -185,9 +193,7 @@ const SearchFilter = () => {
                     >
                       Choose City
                     </option>
-                    <optgroup label="Indonesia">
-                      <option value="Bali">Bali</option>
-                    </optgroup>
+
                     <optgroup label="Australia">
                       <option value="Perth">Perth</option>
                       <option value="Gold Coast">Gold Coast</option>
@@ -200,6 +206,9 @@ const SearchFilter = () => {
                     </optgroup>
                     <optgroup label="Singapore">
                       <option value="Singapore">Singapore</option>
+                    </optgroup>
+                    <optgroup label="Indonesia">
+                      <option value="Bali">Bali</option>
                     </optgroup>
                     <optgroup label="Japan">
                       <option value="Tokyo">Tokyo</option>

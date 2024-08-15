@@ -50,7 +50,7 @@ const CityBtn = () => {
         <span>
           <FaLocationDot />
         </span>
-        <span className="text-xl md:text-[1.3rem] font-semibold    ">City</span>
+        <span className="text-xl md:text-[1.2rem] font-semibold    ">City</span>
         <span className="">
           {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
         </span>
@@ -59,7 +59,7 @@ const CityBtn = () => {
 
       {isOpen && (
         <div>
-          <ul className="flex flex-col gap-3  items-center md:items-start font-[Inter]">
+          <ul className="flex flex-col gap-3 bg-transparent text-center h-64 overflow-scroll items-center md:items-start font-[Inter] scrollbar-hide">
             {sortedCities.map((ci, index) => (
               <Link to={`/cities/${ci}`} key={index}>
                 <li className="text-base font-medium">{ci}</li>
