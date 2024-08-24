@@ -41,33 +41,49 @@ const EventsByCity = () => {
     <div>
       <Navbar />
 
-      <div className="p-6">
-        <h1 className="text-xl md:text-3xl font-semibold my-2 md:my-5">
+      <div className="p-6 ">
+        <h1 className="text-xl md:text-5xl text-center font-bold capitalize my-2 md:my-8">
           Events in {city}
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
           {events.map((event) => (
-            <Link to={`/event/${event._id}`}>
-              <div className="bg-white shadow-lg rounded-md w-[19rem]">
-                <div className="w-64 h-52 mx-auto py-2">
+            <div className="relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl rounded-xl transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <Link to={`/event/${event._id}`}>
+                <div className="relative w-full h-56 overflow-hidden rounded-t-xl">
                   <img
                     src={event.fieldData.Main_Image}
                     alt={event.fieldData.name}
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-cover transition-opacity duration-300 hover:opacity-80"
                   />
+                  <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black via-transparent to-transparent">
+                    <h2 className="text-white text-lg md:text-2xl font-bold truncate">
+                      {event.fieldData.name.substring(0, 15)}
+                    </h2>
+                    <span className="flex items-center text-white text-sm md:text-base">
+                      <p>
+                        {new Date(event.fieldData.startDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            month: "long",
+                            day: "2-digit",
+                            year: "numeric",
+                          }
+                        )}
+                      </p>
+                    </span>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <h2 className=" text-base md:text-xl font-semibold ">
-                    {" "}
-                    {event.fieldData.name}
-                  </h2>
-                  <p> {event.fieldData.VenueAddress}</p>
+                <div className="p-4 bg-white rounded-b-xl">
+                  <p className="text-gray-700 text-sm md:text-base">
+                    {event.fieldData.Details.substring(0, 80) + "..."}
+                  </p>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
         </div>
       </div>
+
       <Footer />
     </div>
   );

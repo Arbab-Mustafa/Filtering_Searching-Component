@@ -382,3 +382,14 @@ body.dark-mode {
 .header_font {
   font-family: Inter, sans-serif;
 }
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.invisible-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

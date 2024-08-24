@@ -305,12 +305,18 @@ const EventDetail = () => {
                         className="event-image  w-32 h-32 md:w-48 md:h-48 mx-auto"
                       />
                     </Link>
-                    <h3 className="event-name text-sm md:text-lg font-semibold mt-2">
-                      {event.fieldData.name}
-                    </h3>
-                    <p className="event-date mt-1 text-sm  md:text-lg">
-                      {new Date(event.fieldData.startDate).toLocaleDateString()}
-                    </p>
+                    <Link to={`/event/${event._id}`}>
+                      <h3 className="event-name text-sm md:text-lg font-semibold mt-2">
+                        {event.fieldData.name}
+                      </h3>
+                    </Link>
+                    <Link to={`/event/${event._id}`}>
+                      <p className="event-date mt-1 text-sm  md:text-lg">
+                        {new Date(
+                          event.fieldData.startDate
+                        ).toLocaleDateString()}
+                      </p>
+                    </Link>
                     <Link
                       to={`/event/${event._id}`}
                       className="details-link text-blue-500 hover:underline text-sm  md:text-lg mt-2"

@@ -21,12 +21,12 @@ const InputSwitch = ({ initialState = false, onChange }) => {
 
   return (
     <div
-      className={`relative w-14 h-8 rounded-full cursor-pointer border border-white transition-colors duration-300`}
+      className={`relative   flex justify-center items-center   md:w-14 md:h-8  w-[2.8rem] h-5 rounded-full cursor-pointer border border-white transition-colors duration-300`}
       onClick={handleToggle}
       style={{ backgroundColor: "transparent" }}
     >
       <div
-        className={`absolute top-0.5 left-0.5 w-7 h-7 rounded-full bg-white border border-white transition-transform duration-300 ${
+        className={`absolute top-[0.120rem] left-0.5 w-4 h-4 md:w-7 md:h-7 rounded-full bg-white border border-white transition-transform duration-300 ${
           isOn ? "translate-x-6" : ""
         }`}
       />

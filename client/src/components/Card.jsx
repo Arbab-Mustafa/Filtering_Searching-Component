@@ -52,20 +52,23 @@ const Card = ({ event }) => {
       <motion.div
         ref={targetRef}
         style={{ scale }}
-        className="w-full overflow-hidden relative rounded-lg md:border my-0 md:my-3 md:border-blue-400 md:py-2 md:px-2 p-1"
+        className="w-full overflow-hidden relative rounded-lg  border border-gray-100 my-0 md:my-3 md:border-blue-400 md:py-2 md:px-2 p-1"
       >
         {event.fieldData.neighborhood && (
           <div
-            className="md:hidden    py-0 px-3   absolute text-xs  mx-auto items-end justify-end z-[20]  top-[5rem]
-           -left-[2rem] -rotate-90      bg-white       text-black"
+            className="md:hidden py-0 px-3 w-[5rem] absolute   text-[0.5rem]  mx-auto items-end justify-end z-[20]  top-[4rem]
+  -rotate-90 bg-white text-black -left-[1.6rem]"
           >
-            <div className="flex gap-1 items-center ">
+            <div className="flex gap-1 mx-auto items-center justify-center ">
               <ImTelegram />
-              <span className="text-xs">{event.fieldData.neighborhood}</span>
+              <span className=" text-[0.5rem]">
+                {event.fieldData.neighborhood}
+              </span>
             </div>
           </div>
         )}
         {/* Card component */}
+
         <div
           className={`${
             recomend ? "card-img" : ""
@@ -73,7 +76,7 @@ const Card = ({ event }) => {
         >
           {/* Conditio nally render recommendation tag */}
           {recomend && (
-            <div className="md:absolute md:top-[5rem] hidden md:inline-block  overflow-hidden md:-left-[12%]   md:py-4 md:w-[30vh] lg:w-[50vh] md:pl-[7.2rem] bg-yellow-500 -rotate-[50deg]   md:text-3xl text-white">
+            <div className="md:absolute md:top-[4.7rem] hidden md:inline-block  overflow-hidden md:-left-[12%]   md:py-4 md:w-[30vh] lg:w-[50vh] md:pl-[7.2rem] bg-yellow-500 -rotate-[53deg]   md:text-2xl text-white text-center">
               Recommended
             </div>
           )}
@@ -97,14 +100,14 @@ const Card = ({ event }) => {
             >
               <div
                 className={` ${recomend ? "left-img" : ""}
-                  md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
+                  w-80 h-36   md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
               >
                 <img
                   src={event.fieldData.Main_Image}
                   alt={event.fieldData.name}
                   className={`  ${
                     recomend ? "" : ""
-                  } w-full h-full object-cover md:img-radius`}
+                  } w-full h-full  object-cover  md:[img-radius]`}
                 />
               </div>
             </Link>
@@ -191,7 +194,7 @@ const Card = ({ event }) => {
                     handleClick(`/event/${event._id}`);
                   }}
                 >
-                  {event.fieldData.Details}
+                  {event.fieldData.Details.slice(0, 300) + "..."}
                 </Link>
               </p>
             </div>
@@ -252,14 +255,30 @@ const Card = ({ event }) => {
                 <p className="md:text-customBlue text-3xl">
                   <MdOutlineAccessTime />
                 </p>
-                <p>{event.fieldData.StartTime}</p>
+                <Link
+                  to={`/event/${event._id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(`/event/${event._id}`);
+                  }}
+                >
+                  <p>{event.fieldData.StartTime}</p>
+                </Link>
               </span>
               {/* Value */}
               <span className="flex gap-1 sm:gap-3 justify-start items-center md:justify-between">
                 <p className="text-gray-500 md:text-customBlue text-sm md:text-3xl">
                   <RiMoneyDollarCircleFill />
                 </p>
-                <p className="text-sm md:text-xl">{event.fieldData.cost}</p>
+                <Link
+                  to={`/event/${event._id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(`/event/${event._id}`);
+                  }}
+                >
+                  <p className="text-sm md:text-xl">{event.fieldData.cost}</p>
+                </Link>
               </span>
             </div>
 

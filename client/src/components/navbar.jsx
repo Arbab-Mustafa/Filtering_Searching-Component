@@ -26,12 +26,21 @@ const Navbar = () => {
     }
   };
 
+  const handleScroll = () => {
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isOpen]);
 
   return (
     <nav className="bg-[#408DBC] shadow-sm h-16 md:h-28 w-full relative header_font">
@@ -47,7 +56,6 @@ const Navbar = () => {
                 />
               </Link>
             </div>
-            <div className="hidden md:block"></div>
           </div>
           <div className="mr-1 md:mr-9 flex items-center justify-between">
             <div>
@@ -67,7 +75,7 @@ const Navbar = () => {
 
       {isOpen && (
         <div
-          className="bg-[#000000] w-full h-fit mx-auto z-50 fixed top-[4rem] md:top-[5rem] left-0 .header_font"
+          className="bg-[#000000] w-full h-fit mx-auto z-50 fixed top-[4rem] md:top-[5rem] left-0 header_font"
           ref={menuRef}
         >
           <div className="py-4 md:py-8 delay-300 duration-300 flex text-white flex-col justify-start items-center">

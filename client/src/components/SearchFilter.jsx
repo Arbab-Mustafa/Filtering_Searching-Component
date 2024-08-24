@@ -10,7 +10,7 @@ import axios from "axios";
 
 const SearchFilter = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Bali");
   const [date, setDate] = useState(null);
   const [events, setEvents] = useState([]);
   const [displayedEvents, setDisplayedEvents] = useState({});
