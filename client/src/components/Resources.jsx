@@ -15,7 +15,7 @@ const Resources = () => {
         className="flex justify-between  my-2   items-center gap-2   px-4 md:px-10   cursor-pointer      rounded-full py-3 delay-150"
         onClick={toggleCity}
       >
-        <span className="text-xl md:text-[1.3rem]  font-normal md:font-semibold  hover:text-gray-400 delay-200">
+        <span className="text-xl md:text-[1.3rem]   font-normal  hover:text-gray-400 delay-200">
           Resources
         </span>
         <span className="text-2xl">
@@ -27,7 +27,9 @@ const Resources = () => {
         <div>
           <ul className="flex flex-col gap-4 items-end   font-[Inter]">
             <Link to="https://www.wildandfree.us/contact-us">
-              <li className=" text-base   font-medium ">Contact Page</li>
+              <li className=" text-base   font-medium font-sans ">
+                Contact Page
+              </li>
             </Link>
           </ul>
         </div>

@@ -60,7 +60,7 @@ const Resources = () => {
         className="flex justify-between gap-2 items-center   px-6 pb-2 cursor-pointer"
         onClick={toggleCity}
       >
-        <h2 className="text-xl md:text-2xl font-semibold">Venues</h2>
+        <h2 className="text-xl md:text-2xl font-normal">Venues</h2>
         <span className="text-2xl">
           {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
         </span>

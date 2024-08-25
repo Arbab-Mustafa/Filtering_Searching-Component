@@ -54,7 +54,7 @@ const CityBtn = () => {
           <ul className="flex flex-col gap-3 bg-transparent text-pretty h-64 overflow-scroll items-start md:items-start font-[Inter] scrollbar-hide">
             {sortedCities.map((ci, index) => (
               <Link to={`/cities/${ci}`} key={index}>
-                <li className="text-base font-medium capitalize text-left">
+                <li className="text-sm md:font-medium font-normal font-sans capitalize text-left">
                   {ci}
                 </li>
               </Link>

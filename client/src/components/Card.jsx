@@ -52,7 +52,7 @@ const Card = ({ event }) => {
       <motion.div
         ref={targetRef}
         style={{ scale }}
-        className="w-full overflow-hidden relative rounded-lg  border border-gray-100 my-0 md:my-3 md:border-blue-400 md:py-2 md:px-2 p-1"
+        className="w-full overflow-hidden relative rounded-lg  border border-transparent  my-0 md:my-3 md:border-blue-400 md:py-2 md:px-2 p-1"
       >
         {event.fieldData.neighborhood && (
           <div
@@ -60,7 +60,9 @@ const Card = ({ event }) => {
   -rotate-90 bg-white text-black -left-[1.8rem]"
           >
             <div className="flex gap-1 mx-auto items-center justify-center ">
-              <ImTelegram />
+              <span className="p-1">
+                <ImTelegram />
+              </span>
               <span className="">{event.fieldData.neighborhood}</span>
             </div>
           </div>
@@ -70,7 +72,7 @@ const Card = ({ event }) => {
         <div
           className={`${
             recomend ? "card-img" : ""
-          }  md:card z-10 md:p-2 p-1 my-1 md:my-2 border md:border-none border-transparent rounded-sm md:rounded-lg   flex gap-2 md:gap-5 sm:justify-evenly relative`}
+          }  md:card z-10 md:p-2 p-1 my-1 md:my-2   border-gray-100 border md:border-none   rounded-sm md:rounded-lg   flex gap-2 md:gap-5 sm:justify-evenly relative`}
         >
           {/* Conditio nally render recommendation tag */}
           {recomend && (
@@ -98,14 +100,14 @@ const Card = ({ event }) => {
             >
               <div
                 className={` ${recomend ? "left-img" : ""}
-                  w-80 h-36   md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
+                   h-36   md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
               >
                 <img
                   src={event.fieldData.Main_Image}
                   alt={event.fieldData.name}
                   className={`  ${
                     recomend ? "" : ""
-                  } w-full h-full  object-cover  md:[img-radius]`}
+                  } w-full h-full  object-center  md:object-cover  md:[img-radius]`}
                 />
               </div>
             </Link>
@@ -143,7 +145,7 @@ const Card = ({ event }) => {
                   handleClick(`/event/${event._id}`);
                 }}
               >
-                <span className="flex  gap-1 md:justify-center justify-start items-center text-xs md:text-xl">
+                <span className="flex  gap-1 md:justify-center justify-start items-center text-[0.6rem] md:text-xl">
                   <p
                     className={` ${
                       recomend ? "right-color" : ""
@@ -154,7 +156,7 @@ const Card = ({ event }) => {
                   <p
                     className={`${
                       recomend ? "right-color" : ""
-                    }  md:text-gray-500 mb-1`}
+                    }  md:text-gray-500 `}
                   >
                     {event.fieldData.venueName}
                   </p>
@@ -209,7 +211,9 @@ const Card = ({ event }) => {
                   >
                     <BsFillPeopleFill />
                   </p>
-                  <p className="text-xs md:text-xl">{event.fieldData.minAge}</p>
+                  <p className="text-[0.6rem] md:text-xl">
+                    {event.fieldData.minAge}
+                  </p>
                 </span>
               </Link>
               {/* Genre */}
@@ -228,7 +232,7 @@ const Card = ({ event }) => {
                   >
                     <RiFileMusicFill />
                   </p>
-                  <p className="text-xs md:text-xl">
+                  <p className="text-[0.6rem] md:text-xl">
                     {event.fieldData.genres1}
                   </p>
                 </span>
@@ -242,7 +246,9 @@ const Card = ({ event }) => {
                 >
                   <RiMoneyDollarCircleFill />
                 </p>
-                <p className="text-xs md:text-xl">{event.fieldData.cost}</p>
+                <p className="text-[0.6rem] md:text-xl">
+                  {event.fieldData.cost}
+                </p>
               </span>
             </div>
 
