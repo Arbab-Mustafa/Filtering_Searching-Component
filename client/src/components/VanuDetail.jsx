@@ -108,7 +108,7 @@ const VenuDetail = () => {
 
                   <p className="md:py-2 flex gap-2 md:gap-6">
                     <span className="text-gray-500  ">
-                      DO you have a question
+                      Do you have a question
                     </span>
                     <span className="font-semibold underline text-color">
                       <Link to={event.promoterLink}>Contact the Promoter</Link>

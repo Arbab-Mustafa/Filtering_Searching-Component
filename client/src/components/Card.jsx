@@ -56,14 +56,12 @@ const Card = ({ event }) => {
       >
         {event.fieldData.neighborhood && (
           <div
-            className="md:hidden py-0 px-3 w-[5rem] absolute   text-[0.5rem]  mx-auto items-end justify-end z-[20]  top-[4rem]
-  -rotate-90 bg-white text-black -left-[1.6rem]"
+            className="md:hidden py-0 px-3 w-[5.5rem] absolute   text-[0.6rem]  mx-auto items-end justify-end z-[20]  top-[4rem]
+  -rotate-90 bg-white text-black -left-[1.8rem]"
           >
             <div className="flex gap-1 mx-auto items-center justify-center ">
               <ImTelegram />
-              <span className=" text-[0.5rem]">
-                {event.fieldData.neighborhood}
-              </span>
+              <span className="">{event.fieldData.neighborhood}</span>
             </div>
           </div>
         )}

@@ -292,11 +292,11 @@ const EventDetail = () => {
               UPCOMING EVENTS
             </h2>
             {upcomingEvents.length > 0 ? (
-              <div className="events-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+              <div className="events-list grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
                 {upcomingEvents.map((event) => (
                   <div
                     key={event._id}
-                    className="event-item mb-4 p-4 border w-40 md:w-56 rounded"
+                    className="event-item overflow-hidden mb-4 p-2 border w-36 md:w-56 rounded"
                   >
                     <Link to={`/event/${event._id}`}>
                       <img

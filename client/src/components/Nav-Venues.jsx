@@ -55,13 +55,13 @@ const Resources = () => {
   };
 
   return (
-    <div className="  text-white py-8 px-4 md:px-10">
+    <div className="text-white">
       <div
-        className="flex justify-between items-center   px-6 py-4 cursor-pointer"
+        className="flex justify-between gap-2 items-center   px-6 pb-2 cursor-pointer"
         onClick={toggleCity}
       >
         <h2 className="text-xl md:text-2xl font-semibold">Venues</h2>
-        <span className="text-3xl">
+        <span className="text-2xl">
           {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
         </span>
       </div>

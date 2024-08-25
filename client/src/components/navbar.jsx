@@ -78,7 +78,7 @@ const Navbar = () => {
           className="bg-[#000000] w-full h-fit mx-auto z-50 fixed top-[4rem] md:top-[5rem] left-0 header_font"
           ref={menuRef}
         >
-          <div className="py-4 md:py-8 delay-300 duration-300 flex text-white flex-col justify-start items-center">
+          <div className="py-4 md:py-8 delay-300 duration-300 flex text-white flex-col justify-start md:items-center items-start ml-9 md:m-auto ">
             <span className="my-1">
               <CityBtn />
             </span>

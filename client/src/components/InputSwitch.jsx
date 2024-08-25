@@ -5,30 +5,43 @@ const InputSwitch = ({ initialState = false, onChange }) => {
   const [isOn, setIsOn] = useState(initialState);
 
   useEffect(() => {
-    if (isOn) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
+    document.body.classList.toggle("dark-mode", isOn);
   }, [isOn]);
 
   const handleToggle = () => {
-    setIsOn(!isOn);
-    if (onChange) {
-      onChange(!isOn);
-    }
+    setIsOn((prevState) => {
+      const newState = !prevState;
+      if (onChange) {
+        onChange(newState);
+      }
+      return newState;
+    });
   };
 
   return (
     <div
-      className={`relative   flex justify-center items-center   md:w-14 md:h-8  w-[2.8rem] h-5 rounded-full cursor-pointer border border-white transition-colors duration-300`}
+      className={`relative flex items-center cursor-pointer rounded-full border border-white transition-colors duration-300 ease-in-out ${
+        isOn ? "bg-transparent" : "bg-transparent"
+      }`}
       onClick={handleToggle}
-      style={{ backgroundColor: "transparent" }}
+      role="switch"
+      aria-checked={isOn}
+      tabIndex="0"
+      style={{
+        width: "3.1rem",
+        height: "1.4rem",
+      }}
     >
       <div
-        className={`absolute top-[0.120rem] left-0.5 w-4 h-4 md:w-7 md:h-7 rounded-full bg-white border border-white transition-transform duration-300 ${
-          isOn ? "translate-x-6" : ""
+        className={`absolute top-[0.49px] transition-transform duration-500  ease-in-out rounded-full border-2 border-white ${
+          isOn ? "translate-x-full" : "translate-x-0"
         }`}
+        style={{
+          width: "1.2rem",
+          height: "1.2rem",
+          backgroundColor: "white",
+          transform: `translateX(${isOn ? "1.7rem" : "0.1rem"})`,
+        }}
       />
     </div>
   );

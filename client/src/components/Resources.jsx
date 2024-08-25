@@ -12,13 +12,13 @@ const Resources = () => {
   return (
     <div>
       <div
-        className="flex justify-between  my-2 md:text-2xl items-center gap-2   px-4 md:px-10   cursor-pointer      rounded-full py-3 delay-150"
+        className="flex justify-between  my-2   items-center gap-2   px-4 md:px-10   cursor-pointer      rounded-full py-3 delay-150"
         onClick={toggleCity}
       >
-        <span className="text-xl md:text-[1.3rem]   font-semibold  hover:text-gray-400 delay-200">
+        <span className="text-xl md:text-[1.3rem]  font-normal md:font-semibold  hover:text-gray-400 delay-200">
           Resources
         </span>
-        <span className="">
+        <span className="text-2xl">
           {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
         </span>
       </div>

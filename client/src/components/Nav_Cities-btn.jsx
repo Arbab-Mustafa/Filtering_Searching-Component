@@ -39,13 +39,13 @@ const CityBtn = () => {
   return (
     <div>
       <div
-        className="flex justify-between my-2 text-[1.3rem] items-center gap-2 md:gap-4 text-[#408DBC] px-4 md:px-10 bg-white hover:bg-transparent hover:border-2 border-white cursor-pointer rounded-full py-3 delay-150"
+        className="flex justify-between my-2 text-[1.3rem] items-center gap-3 md:gap-5 text-[#408DBC] px-6 md:px-10 bg-white hover:bg-transparent hover:border-2 border-white cursor-pointer rounded-full py-3 delay-150"
         onClick={toggleCity}
       >
-        <span>
+        <span className="text-sm md:text-lg">
           <FaLocationDot />
         </span>
-        <span className="text-xl md:text-[1.2rem] font-semibold">City</span>
+        <span className="text-lg md:text-[1.2rem] font-semibold">City</span>
         <span>{isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}</span>
       </div>
 
