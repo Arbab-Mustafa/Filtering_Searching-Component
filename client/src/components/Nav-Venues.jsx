@@ -70,7 +70,7 @@ const Resources = () => {
       </div>
 
       {isOpen && (
-        <div className="mt-6 space-y-6   overflow-scroll h-[10rem] md:h[15rem] invisible-scrollbar">
+        <div className="mt-6 space-y-6  bg-[#000000]    rounded-md  invisible-scrollbar">
           {Object.keys(venuesByCity).length > 0 ? (
             <div className="grid gap-2 md:gap-3 md:grid-cols-3 lg:grid-cols-4">
               {Object.entries(venuesByCity).map(([city, venues]) => (

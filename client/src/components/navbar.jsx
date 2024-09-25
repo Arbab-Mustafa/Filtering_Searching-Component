@@ -75,10 +75,10 @@ const Navbar = () => {
 
       {isOpen && (
         <div
-          className="bg-[#000000] w-full h-[70vh] mx-auto z-50 fixed top-[4rem] md:top-[5rem] left-0 header_font"
+          className="bg-[#000000] w-full h-[80vh] mx-auto z-50 sticky top-[4rem] md:top-[5rem] left-0 header_font"
           ref={menuRef}
         >
-          <div className="py-4 md:py-8 mt-3 md:mt-5 delay-300 duration-300 flex text-white flex-col justify-start md:items-center items-start ml-9 md:m-auto ">
+          <div className="py-4 md:pt-20 mt-3 md:mt-5 delay-300   duration-300 flex text-white flex-col justify-start  items-start ml-9 md:ml-28  ">
             <span className="my-1">
               <CityBtn />
             </span>

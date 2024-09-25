@@ -52,7 +52,7 @@ const Card = ({ event }) => {
       <motion.div
         ref={targetRef}
         style={{ scale }}
-        className="w-full overflow-hidden relative rounded-lg  border border-transparent  my-0 md:my-3 md:border-blue-400 md:py-2 md:px-2 p-1"
+        className="w-full overflow-hidden relative rounded-lg  border border-transparent  my-0 md:my-2 md:border-blue-400 md:py-1 md:px-2 p-0"
       >
         {event.fieldData.neighborhood && (
           <div
@@ -72,7 +72,7 @@ const Card = ({ event }) => {
         <div
           className={`${
             recomend ? "card-img" : ""
-          }  md:card z-10 md:p-2 p-1 my-1 md:my-2   border-gray-100 border md:border-none   rounded-sm md:rounded-lg   flex gap-2 md:gap-5 sm:justify-evenly relative`}
+          }  md:card z-10 md:p-2 p-0 my-1 md:my-2   border-gray-100 border md:border-none   rounded-sm md:rounded-lg   flex gap-2 md:gap-5 sm:justify-evenly relative`}
         >
           {/* Conditio nally render recommendation tag */}
           {recomend && (
@@ -120,7 +120,7 @@ const Card = ({ event }) => {
             }  flex-1 p-2 md:mt-9 mt-0 md:p-4`}
           >
             {/* Event name */}
-            <h3 className="text-sm md:text-3xl font-semibold md:font-bold mb-2">
+            <h3 className="text-sm md:text-3xl font-bold mb-2">
               <Link
                 to={`/event/${event._id}`}
                 onClick={(e) => {
@@ -156,7 +156,7 @@ const Card = ({ event }) => {
                   <p
                     className={`${
                       recomend ? "right-color" : ""
-                    }  md:text-gray-500 `}
+                    }  md:text-gray-500  font-semibold`}
                   >
                     {event.fieldData.venueName}
                   </p>
@@ -200,7 +200,7 @@ const Card = ({ event }) => {
             </div>
 
             {/* People, Genre, and Value */}
-            <div className="flex gap-1 md:gap-4 flex-wrap flex-col w-auto  ">
+            <div className="flex gap-[0.12rem] md:gap-4 flex-wrap flex-col w-auto  ">
               <div className="flex  justify-between sm:flex-row gap-1  w-fit flex-wrap sm:gap-[2.3rem] text-sm md:text-base md:justify-between my-2   ">
                 {/* People */}
                 <Link to={`/event/${event._id}`}>
@@ -212,7 +212,7 @@ const Card = ({ event }) => {
                     >
                       <BsFillPeopleFill />
                     </p>
-                    <p className="text-[0.75rem] md:text-[1rem]">
+                    <p className="text-[0.75rem] font-semibold md:text-[1rem]">
                       {event.fieldData.minAge}
                     </p>
                   </div>
@@ -233,7 +233,7 @@ const Card = ({ event }) => {
                     >
                       <RiFileMusicFill />
                     </p>
-                    <p className="text-[0.75rem]  md:text-[1rem]">
+                    <p className="text-[0.75rem] font-semibold md:text-[1rem]">
                       {event.fieldData.genres1}
                     </p>
                   </div>
@@ -247,7 +247,7 @@ const Card = ({ event }) => {
                   >
                     <RiMoneyDollarCircleFill />
                   </p>
-                  <p className="text-[0.75rem] md:text-xl">
+                  <p className="text-[0.75rem] font-semibold md:text-xl">
                     {event.fieldData.cost}
                   </p>
                 </div>
@@ -285,7 +285,7 @@ const Card = ({ event }) => {
                       handleClick(`/event/${event._id}`);
                     }}
                   >
-                    <p className="text-[0.75rem] md:text-[1rem]">
+                    <p className="text-[0.75rem]  md:text-[1rem]">
                       {event.fieldData.cost}
                     </p>
                   </Link>

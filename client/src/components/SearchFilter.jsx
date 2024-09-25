@@ -287,7 +287,7 @@ const SearchFilter = () => {
                       {dateIntoString(date)}
                     </h3>
                   </div>
-                  <div className="cards-container w-full  md:w-[90%] grid md:gap-4 md:my-6 gap-1 mx-auto  my-0">
+                  <div className="cards-container w-full  md:w-[90%] grid md:gap-2 md:my-4 gap-[0.1rem] mx-auto  my-0">
                     {displayedEvents[date]
                       .slice(0, eventCounts[date])
                       .map((event, index) => (
@@ -297,7 +297,7 @@ const SearchFilter = () => {
                   {displayedEvents[date].length > eventCounts[date] && (
                     <button
                       onClick={() => loadMoreEventsForDate(date)}
-                      className=" mt-4 border  text-xs md:text-base md:border-2 flex justify-center  items-center border-[#E5E194] md:bg-[#E5E194] mx-auto text-[#cfc200] md:text-black font-medium md:font-normal py-1 md:py-2 px-3 md:px-4 rounded-full md:rounded-md  "
+                      className=" mt-4 border  text-xs md:text-base md:border-2 flex justify-center  items-center border-[#E5E194] md:bg-[#E5E194] mx-auto text-[#cfc200] md:text-black font-[700] md:font-semibold py-1 md:py-2 px-3 md:px-4 rounded-full md:rounded-md  "
                     >
                       <span>Load more</span>
                       <RiArrowDropRightLine className="h-4 w-4 md:h-6 md:w-6 mt-[0.1rem]  " />
