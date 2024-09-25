@@ -64,21 +64,23 @@ const VenuDetail = () => {
     <>
       <Navbar />
 
-      <div ref={targetRef} className="container mx-auto p-4 overflow-hidden">
+      <div ref={targetRef} className="container mx-auto p-4 overflow-hidden ">
         {/* flex-img-card */}
-        <div className="w-7/10 mx-auto">
-          <div className="md:mb-16 md:gap-3 flex-wrap  md:relative ">
+        <div className="w-7/10 mx-auto   ">
+          <div className="md:mb-16 md:relative h-[400px] md:h-[650px] ">
             {/* 1 */}
-            <div className="md:w-3/3 w-full h-auto    max-w-[780px] max-h-[810px] overflow-hidden rounded-sm sm:z-0">
-              <img
-                src={event.mainImage}
-                alt={event.name}
-                className="w-full h-full object-cover rounded-sm"
-              />
+            <div className="md:w-[50rem] w-[30rem] max-h-[810px]  rounded-sm sm:z-0 my-3">
+              {
+                <img
+                  src={event.mainImage}
+                  alt={event.name}
+                  className="w-full h-full object-cover rounded-sm"
+                />
+              }
             </div>
 
             {/* 3 */}
-            <motion.div className="md:absolute  w-full md:w-[50rem] card right-1 md:-bottom-32 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
+            <div className="md:absolute  mb-14  md:w-[45rem]  card right-1 h-auto  md:h-[55vh] top-28  sm:z-20 p-2 bg-blue-500    border-l-4 border-yellow-500 ">
               <div className=" md:py-2 md:px-3 p-1  ">
                 <h1 className=" text-3xl md:text-6xl font-bold mb-4 font-serif md:p-2 p-1">
                   {event.name}
@@ -116,10 +118,10 @@ const VenuDetail = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
           {/* details */}
-          <div className="mb-4 md:pt-20 ">
+          <div className="mb-4 md:my-20 ">
             <div className=" flex sm:my-4 my-3 py-3 md:py-4 flex-col md:flex-row flex-wrap justify-between">
               <h2 className=" text-xl md:text-4xl  text-center md:text-left font-semibold mb-2  font-serif">
                 Event Details

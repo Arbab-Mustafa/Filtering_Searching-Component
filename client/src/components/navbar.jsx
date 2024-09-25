@@ -26,27 +26,27 @@ const Navbar = () => {
     }
   };
 
-  const handleScroll = () => {
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  };
+  // const handleScroll = () => {
+  //   if (isOpen) {
+  //     setIsOpen(false);
+  //   }
+  // };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
-    window.addEventListener("scroll", handleScroll);
+    // window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      window.removeEventListener("scroll", handleScroll);
+      // window.removeEventListener("scroll", handleScroll);
     };
   }, [isOpen]);
 
   return (
-    <nav className="bg-[#408DBC] shadow-sm h-16 md:h-28 w-full relative header_font">
+    <nav className="bg-[#408DBC] shadow-sm h-20 md:h-28 w-full relative header_font">
       <div className="max-w-7xl mx-auto h-[3.8rem] md:h-[4.7rem] px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center my-1 md:my-3">
+        <div className="flex items-center  justify-between">
+          <div className="flex items-center  my-[0.35rem] md:my-3">
             <div className="flex-shrink-0">
               <Link to="/">
                 <img
@@ -57,16 +57,16 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div className="mr-1 md:mr-9 flex items-center justify-between">
+          <div className="mr-1 md:mr-9 flex items-center gap-2 md:gap-3 justify-between">
             <div>
               <InputSwitch initialState={false} onChange={handleSwitchChange} />
             </div>
             <div>
               <button
                 onClick={toggleMenu}
-                className="text-xl md:text-4xl hover:text-gray-200 text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+                className="text-[32px] md:text-4xl hover:text-gray-200 text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
               >
-                {isOpen ? <RxCross1 /> : <IoMenu />}
+                {isOpen ? <RxCross1 className=" " /> : <IoMenu className=" " />}
               </button>
             </div>
           </div>
@@ -75,10 +75,10 @@ const Navbar = () => {
 
       {isOpen && (
         <div
-          className="bg-[#000000] w-full h-fit mx-auto z-50 fixed top-[4rem] md:top-[5rem] left-0 header_font"
+          className="bg-[#000000] w-full h-[70vh] mx-auto z-50 fixed top-[4rem] md:top-[5rem] left-0 header_font"
           ref={menuRef}
         >
-          <div className="py-4 md:py-8 delay-300 duration-300 flex text-white flex-col justify-start md:items-center items-start ml-9 md:m-auto ">
+          <div className="py-4 md:py-8 mt-3 md:mt-5 delay-300 duration-300 flex text-white flex-col justify-start md:items-center items-start ml-9 md:m-auto ">
             <span className="my-1">
               <CityBtn />
             </span>
