@@ -14,6 +14,7 @@ import EventRegistration from "./eventRegistration";
 import Loader from "./loading";
 import Footer from "./Footer";
 import Navbar from "./navbar";
+
 const getUpcomingEventsForVenue = (eventsData, venueName, currentEventId) => {
   // Get today's date in YYYY-MM-DD format
   const currentDate = new Date();
@@ -131,8 +132,8 @@ const EventDetail = () => {
       <div ref={targetRef} className="container mx-auto p-4 overflow-hidden ">
         {/* flex-img-card */}
 
-        <motion.div className="w-7/10 mx-auto my-1 md:my-10">
-          <motion.div className="flex md:mb-16 md:gap-3 flex-wrap  md:relative ">
+        <motion.div className="w-7/10 mx-auto my-1 md:my-20">
+          <motion.div className="flex md:mb-16 md:gap-3 flex-wrap  relative ">
             {/* 1 */}
             <div className="md:w-2/3 w-full h-auto  max-w-[680px] max-h-[810px] overflow-hidden rounded-sm sm:z-0">
               <motion.img
@@ -148,12 +149,12 @@ const EventDetail = () => {
                 Line Up
               </h3>
               <p className="text-sm font-sans font-bold">
-                {extractTextFromHTML(event.fieldData.lineup2)}
+                {extractTextFromHTML(event.fieldData.lineup2 || " ")}
               </p>
             </div>
 
             {/* 3 */}
-            <motion.div className="md:absolute  w-full md:w-[50rem] card right-1 md:-bottom-20 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
+            <motion.div className="md:absolute  w-full md:w-[50rem] card right-9 md:-bottom-20 sm:z-20 p-2 bg-blue-500 md:h-[70vh] border-l-4 border-yellow-500 ">
               <motion.div className=" md:py-2 md:px-3 p-1  ">
                 <h1 className=" text-3xl md:text-6xl font-bold mb-4 font-serif md:p-2 p-1">
                   {event.fieldData.name}
@@ -175,7 +176,7 @@ const EventDetail = () => {
 
                 <div className=" py-1">
                   <p className="sm:mb-1   text-sm md:text-2xl font-sans font-semibold  w-full md:w-[50vw]">
-                    {event.fieldData.VenueAddress}
+                    {event.fieldData["Venue Address"]}
                   </p>
                 </div>
 
@@ -190,7 +191,7 @@ const EventDetail = () => {
                   <p className="md:py-2 flex gap-2  md:gap-6">
                     <span className="text-gray-500  ">Cost </span>
                     <span className="font-semibold">
-                      ${event.fieldData.valu}
+                      ${event.fieldData.cost}
                     </span>
                   </p>
 
@@ -198,8 +199,24 @@ const EventDetail = () => {
                     <span className="text-gray-500  ">
                       Do you have a question
                     </span>
-                    <span className="font-semibold underline text-color">
-                      Contact the Promoter
+                    <span className="font-semibold underline text-color cursor-pointer">
+                      <Link to={event.fieldData.promoterMail}>
+                        Contact to promoter
+                      </Link>
+                    </span>
+                  </p>
+                  <p className="md:py-2 flex gap-2 md:gap-6">
+                    <span className="text-gray-500  ">
+                      Buy Tickets for this event
+                    </span>
+                    <span className="font-semibold underline text-color cursor-pointer">
+                      <Link to={event.fieldData.ticketLink}>Buy Now</Link>
+                    </span>
+                  </p>
+                  <p className="md:py-2 flex gap-2 md:gap-6">
+                    <span className="text-gray-500  ">Visit our Website</span>
+                    <span className="font-semibold underline text-color cursor-pointer">
+                      <Link to={event.fieldData.WebsiteURL}>Visit Now</Link>
                     </span>
                   </p>
                 </div>

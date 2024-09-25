@@ -28,19 +28,19 @@ const InputSwitch = ({ initialState = false, onChange }) => {
       aria-checked={isOn}
       tabIndex="0"
       style={{
-        width: "3.1rem",
-        height: "1.4rem",
+        width: "3.5rem",
+        height: "1.8rem",
       }}
     >
       <div
-        className={`absolute top-[0.49px] transition-transform duration-500  ease-in-out rounded-full border-2 border-white ${
+        className={`absolute top-[0.8px] transition-transform duration-500  ease-in-out rounded-full border-2 border-white ${
           isOn ? "translate-x-full" : "translate-x-0"
         }`}
         style={{
-          width: "1.2rem",
-          height: "1.2rem",
+          width: "1.6rem",
+          height: "1.6rem",
           backgroundColor: "white",
-          transform: `translateX(${isOn ? "1.7rem" : "0.1rem"})`,
+          transform: `translateX(${isOn ? "1.69rem" : "0.1rem"})`,
         }}
       />
     </div>

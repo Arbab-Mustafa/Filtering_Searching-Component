@@ -44,15 +44,12 @@ const SearchFilter = () => {
 
       // Sort events by date
       const sortedEvents = data.sort((a, b) => {
-        // Convert startDate to Date objects
         const dateA = new Date(a.fieldData.startDate);
         const dateB = new Date(b.fieldData.startDate);
-
-        // Compare dates
         return dateA - dateB;
       });
       setEvents(sortedEvents);
-      filterAndSetDisplayedEvents(sortedEvents); // Set displayed events after fetching
+      filterAndSetDisplayedEvents(sortedEvents);
     } catch (err) {
       console.error("Error fetching data:", err);
     } finally {
@@ -62,7 +59,7 @@ const SearchFilter = () => {
 
   const filterAndSetDisplayedEvents = (eventsData = events) => {
     const getLocalDateString = (date) => {
-      return new Date(date).toLocaleDateString("en-CA"); // 'en-CA' outputs date in 'YYYY-MM-DD' format
+      return new Date(date).toLocaleDateString("en-CA");
     };
     const normalizedSearchTerm = searchTerm.toLowerCase().trim();
     const normalizedCity = city.toLowerCase().trim();
@@ -80,10 +77,6 @@ const SearchFilter = () => {
         ? fieldData.cities.toLowerCase().trim()
         : "";
 
-      // const normalizedEventNeighborhood = fieldData.cities
-      //   ? fieldData.cities.toLowerCase().trim()
-      //   : "";
-
       const matchesSearchTerm =
         normalizedEventName.includes(normalizedSearchTerm) ||
         normalizedEventLocation.includes(normalizedSearchTerm);
@@ -96,14 +89,13 @@ const SearchFilter = () => {
       const matchesDate =
         normalizedDate === null || eventDate === normalizedDate;
 
-      // Return the combined conditions
       return matchesSearchTerm && matchesCity && matchesDate;
     });
 
-    const currentDate = getLocalDateString(new Date()); // Format as YYYY-MM-DD
+    const currentDate = getLocalDateString(new Date());
     const todayEvents = filteredEvents.filter((event) => {
       const eventDate = event.fieldData.startDate
-        ? new Date(event.fieldData.startDate).toISOString().split("T")[0] // Format as YYYY-MM-DD
+        ? new Date(event.fieldData.startDate).toISOString().split("T")[0]
         : null;
       return eventDate && eventDate >= currentDate;
     });
@@ -111,7 +103,7 @@ const SearchFilter = () => {
     const groupedByDate = todayEvents.reduce((groups, event) => {
       const eventDate = new Date(event.fieldData.startDate)
         .toISOString()
-        .split("T")[0]; // Format as YYYY-MM-DD
+        .split("T")[0];
       if (!groups[eventDate]) {
         groups[eventDate] = [];
       }
@@ -121,10 +113,9 @@ const SearchFilter = () => {
 
     const initialEventCounts = {};
     for (const date in groupedByDate) {
-      initialEventCounts[date] = groupedByDate[date].length; // Count of events per date
+      initialEventCounts[date] = Math.min(3, groupedByDate[date].length); // Show 3 events initially or total count if less than 3
     }
 
-    // Select only the first 'daysToShow' days to display
     const displayedEventsLimited = Object.keys(groupedByDate)
       .sort()
       .slice(0, daysToShow)
@@ -138,10 +129,16 @@ const SearchFilter = () => {
   };
 
   const loadMoreEventsForDate = (date) => {
-    setEventCounts((prevCounts) => ({
-      ...prevCounts,
-      [date]: prevCounts[date] + 4,
-    }));
+    setEventCounts((prevCounts) => {
+      const newCount = Math.min(
+        prevCounts[date] + 3,
+        displayedEvents[date].length
+      );
+      return {
+        ...prevCounts,
+        [date]: newCount,
+      };
+    });
   };
 
   const clearFilters = () => {
@@ -162,8 +159,7 @@ const SearchFilter = () => {
   };
 
   const loadMoreDays = () => {
-    console.log("Loading more days");
-    setDaysToShow((prevDays) => prevDays + 2);
+    setDaysToShow((prevDays) => prevDays + 1); // Load more days, adjusting as necessary
   };
 
   return (

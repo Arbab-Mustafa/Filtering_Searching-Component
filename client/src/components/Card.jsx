@@ -100,7 +100,7 @@ const Card = ({ event }) => {
             >
               <div
                 className={` ${recomend ? "left-img" : ""}
-                   h-36   md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
+                  h-36   md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
               >
                 <img
                   src={event.fieldData.Main_Image}
@@ -200,90 +200,97 @@ const Card = ({ event }) => {
             </div>
 
             {/* People, Genre, and Value */}
-            <div className="flex sm:flex-row gap-1 flex-wrap sm:gap-4 text-sm md:text-base md:justify-between my-2 md:w-[25vw]">
-              {/* People attending */}
-              <Link to={`/event/${event._id}`}>
-                <span className="flex gap-1 sm:gap-3 items-center justify-start md:justify-between">
+            <div className="flex gap-1 md:gap-4 flex-wrap flex-col w-auto">
+              <div className="flex  justify-between sm:flex-row gap-1  w-fit flex-wrap sm:gap-[6rem] text-sm md:text-base md:justify-between my-2  ">
+                {/* People */}
+                <Link to={`/event/${event._id}`}>
+                  <div className="flex gap-1 sm:gap-2 items-center   justify-start md:justify-between">
+                    <p
+                      className={`${
+                        recomend ? "right-color" : ""
+                      }   text-gray-500 md:text-customBlue text-xs md:text-2xl`}
+                    >
+                      <BsFillPeopleFill />
+                    </p>
+                    <p className="text-[0.6rem] md:text-[1.1rem]">
+                      {event.fieldData.minAge}
+                    </p>
+                  </div>
+                </Link>
+                {/* Genre */}
+                <Link
+                  to={`/event/${event._id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(`/event/${event._id}`);
+                  }}
+                >
+                  <div className="flex gap-1 sm:gap-2     items-center md:justify-between">
+                    <p
+                      className={` ${
+                        recomend ? "right-color" : ""
+                      }  text-gray-500 md:text-customBlue text-xs md:text-2xl`}
+                    >
+                      <RiFileMusicFill />
+                    </p>
+                    <p className="text-[0.6rem]  md:text-[1.1rem]">
+                      {event.fieldData.genres1}
+                    </p>
+                  </div>
+                </Link>
+                {/* Value */}
+                <div className="flex md:hidden gap-1 sm:gap-3 justify-start items-center md:justify-between">
                   <p
                     className={`${
                       recomend ? "right-color" : ""
-                    }   text-gray-500 md:text-customBlue text-xs md:text-3xl`}
-                  >
-                    <BsFillPeopleFill />
-                  </p>
-                  <p className="text-[0.6rem] md:text-xl">
-                    {event.fieldData.minAge}
-                  </p>
-                </span>
-              </Link>
-              {/* Genre */}
-              <Link
-                to={`/event/${event._id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick(`/event/${event._id}`);
-                }}
-              >
-                <span className="flex gap-1 sm:gap-3 justify-start items-center md:justify-between">
-                  <p
-                    className={` ${
-                      recomend ? "right-color" : ""
                     }  text-gray-500 md:text-customBlue text-xs md:text-3xl`}
                   >
-                    <RiFileMusicFill />
+                    <RiMoneyDollarCircleFill />
                   </p>
                   <p className="text-[0.6rem] md:text-xl">
-                    {event.fieldData.genres1}
+                    {event.fieldData.cost}
                   </p>
-                </span>
-              </Link>
-              {/* Value */}
-              <span className="flex md:hidden gap-1 sm:gap-3 justify-start items-center md:justify-between">
-                <p
-                  className={`${
-                    recomend ? "right-color" : ""
-                  }  text-gray-500 md:text-customBlue text-xs md:text-3xl`}
-                >
-                  <RiMoneyDollarCircleFill />
-                </p>
-                <p className="text-[0.6rem] md:text-xl">
-                  {event.fieldData.cost}
-                </p>
-              </span>
-            </div>
+                </div>
+              </div>
 
-            {/* Time and Value (mobile view) */}
-            <div className="md:flex hidden flex-col sm:flex-row gap-1 sm:gap-4 justify-between my-2 md:w-[25vw]">
-              {/* Time */}
-              <span className="flex gap-1 sm:gap-3 justify-between">
-                <p className="md:text-customBlue text-3xl">
-                  <MdOutlineAccessTime />
-                </p>
-                <Link
-                  to={`/event/${event._id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClick(`/event/${event._id}`);
-                  }}
-                >
-                  <p>{event.fieldData.StartTime}</p>
-                </Link>
-              </span>
-              {/* Value */}
-              <span className="flex gap-1 sm:gap-3 justify-start items-center md:justify-between">
-                <p className="text-gray-500 md:text-customBlue text-sm md:text-3xl">
-                  <RiMoneyDollarCircleFill />
-                </p>
-                <Link
-                  to={`/event/${event._id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClick(`/event/${event._id}`);
-                  }}
-                >
-                  <p className="text-sm md:text-xl">{event.fieldData.cost}</p>
-                </Link>
-              </span>
+              {/* Time and Value (mobile view) */}
+              <div
+                className="md:flex hidden w-fit justify-between flex-col sm:flex-row gap-1 
+              sm:gap-[5.70rem]  my-2 "
+              >
+                {/* Time */}
+                <div className="flex gap-1 sm:gap-2 justify-between">
+                  <p className="md:text-customBlue text-2xl">
+                    <MdOutlineAccessTime />
+                  </p>
+                  <Link
+                    to={`/event/${event._id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleClick(`/event/${event._id}`);
+                    }}
+                  >
+                    <p>{event.fieldData.StartTime}</p>
+                  </Link>
+                </div>
+                {/* Value */}
+                <div className="flex  gap-1 sm:gap-2 justify-start items-center md:justify-between">
+                  <p className="text-gray-500 md:text-customBlue text-sm md:text-2xl">
+                    <RiMoneyDollarCircleFill />
+                  </p>
+                  <Link
+                    to={`/event/${event._id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleClick(`/event/${event._id}`);
+                    }}
+                  >
+                    <p className="text-sm md:text-[1.1rem]">
+                      {event.fieldData.cost}
+                    </p>
+                  </Link>
+                </div>
+              </div>
             </div>
 
             {/* Buttons section */}
