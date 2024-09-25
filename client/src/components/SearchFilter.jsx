@@ -7,6 +7,8 @@ import Card from "./Card";
 import { CiLocationOn, CiCalendar, CiSearch } from "react-icons/ci";
 import Loader from "./loading";
 import axios from "axios";
+import { FaArrowLeft, FaArrowRight, FaLeftRight } from "react-icons/fa6";
+import { RiArrowDropRightLine } from "react-icons/ri";
 
 const SearchFilter = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -285,7 +287,7 @@ const SearchFilter = () => {
                       {dateIntoString(date)}
                     </h3>
                   </div>
-                  <div className="cards-container w-full grid md:gap-4 md:my-6 gap-1   my-0">
+                  <div className="cards-container w-full  md:w-[90%] grid md:gap-4 md:my-6 gap-1 mx-auto  my-0">
                     {displayedEvents[date]
                       .slice(0, eventCounts[date])
                       .map((event, index) => (
@@ -295,9 +297,10 @@ const SearchFilter = () => {
                   {displayedEvents[date].length > eventCounts[date] && (
                     <button
                       onClick={() => loadMoreEventsForDate(date)}
-                      className=" mt-4 border  text-xs md:text-xl md:border-2 flex justify-center border-yellow-500 md:bg-yellow-500 md:hover:bg-yellow-600 mx-auto text-yellow-500 md:text-black md:font-semibold py-1 md:py-2 px-3 md:px-4 rounded-full "
+                      className=" mt-4 border  text-xs md:text-base md:border-2 flex justify-center  items-center border-[#E5E194] md:bg-[#E5E194] mx-auto text-[#cfc200] md:text-black font-medium md:font-normal py-1 md:py-2 px-3 md:px-4 rounded-full md:rounded-md  "
                     >
-                      Load More
+                      <span>Load more</span>
+                      <RiArrowDropRightLine className="h-4 w-4 md:h-6 md:w-6 mt-[0.1rem]  " />
                     </button>
                   )}
                 </div>
@@ -311,7 +314,7 @@ const SearchFilter = () => {
           {Object.keys(displayedEvents).length > 0 && (
             <button
               onClick={loadMoreDays}
-              className="mt-4 border flex justify-center border-yellow-500  bg-yellow-500 md:hover:bg-yellow-600 mx-auto text-white  md:text-black font-semibold text-base md:text-xl py-2 md:py-3 px-5  rounded-full md:rounded"
+              className="mt-4 border flex justify-center border-[#E5E194]  bg-[#cfc200]  mx-auto text-white  md:text-black font-medium text-base md:text-xl py-2 md:py-3 px-7 md:px-5   rounded-full md:rounded"
             >
               See all events
             </button>

@@ -21,7 +21,8 @@
     "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
     "react-world-flags": "^1.6.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "dayjs": "^1.11.13"
   },
   "scripts": {
     "dev": " react-scripts  start",

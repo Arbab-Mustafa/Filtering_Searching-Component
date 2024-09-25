@@ -40,9 +40,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media screen and (max-width: 479px) {
   .btn1 {
-    border-radius: 8px;
     border: 2px solid #dec62a;
-    color: #dec62a;
+    color: #cfc200;
     background-color: transparent;
     text-align: center;
     font-size: 13px;
@@ -61,12 +60,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media screen and (min-width: 480px) and (max-width: 767px) {
   .btn1 {
-    border-radius: 13px;
     border: 2px solid #dec62a;
-    color: #dec62a;
+    color: #cfc200;
     background-color: transparent;
 
-    font-size: 17px;
+    font-size: 14px;
     padding: 2px 10px;
   }
 

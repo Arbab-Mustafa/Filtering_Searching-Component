@@ -145,7 +145,7 @@ const Card = ({ event }) => {
                   handleClick(`/event/${event._id}`);
                 }}
               >
-                <span className="flex  gap-1 md:justify-center justify-start items-center text-[0.6rem] md:text-xl">
+                <span className="flex  gap-1 md:justify-center justify-start items-center text-[0.75rem] md:text-xl">
                   <p
                     className={` ${
                       recomend ? "right-color" : ""
@@ -204,7 +204,7 @@ const Card = ({ event }) => {
               <div className="flex  justify-between sm:flex-row gap-1  w-fit flex-wrap sm:gap-[2.3rem] text-sm md:text-base md:justify-between my-2   ">
                 {/* People */}
                 <Link to={`/event/${event._id}`}>
-                  <div className="flex gap-1  items-center  md:w-[9rem]    justify-start  ">
+                  <div className="flex gap-1 md:gap-2  items-center  md:w-[9rem]    justify-start  ">
                     <p
                       className={`${
                         recomend ? "right-color" : ""
@@ -212,7 +212,7 @@ const Card = ({ event }) => {
                     >
                       <BsFillPeopleFill />
                     </p>
-                    <p className="text-[0.6rem] md:text-[1.1rem]">
+                    <p className="text-[0.75rem] md:text-[1rem]">
                       {event.fieldData.minAge}
                     </p>
                   </div>
@@ -233,7 +233,7 @@ const Card = ({ event }) => {
                     >
                       <RiFileMusicFill />
                     </p>
-                    <p className="text-[0.6rem]  md:text-[1.1rem]">
+                    <p className="text-[0.75rem]  md:text-[1rem]">
                       {event.fieldData.genres1}
                     </p>
                   </div>
@@ -247,7 +247,7 @@ const Card = ({ event }) => {
                   >
                     <RiMoneyDollarCircleFill />
                   </p>
-                  <p className="text-[0.6rem] md:text-xl">
+                  <p className="text-[0.75rem] md:text-xl">
                     {event.fieldData.cost}
                   </p>
                 </div>
@@ -285,7 +285,7 @@ const Card = ({ event }) => {
                       handleClick(`/event/${event._id}`);
                     }}
                   >
-                    <p className="text-sm md:text-[1.1rem]">
+                    <p className="text-[0.75rem] md:text-[1rem]">
                       {event.fieldData.cost}
                     </p>
                   </Link>
@@ -300,7 +300,7 @@ const Card = ({ event }) => {
                 onClick={openModal}
                 className={` ${
                   recomend ? "right-color-button" : ""
-                }  bg-yellow-300 btn1   md:px-4   flex justify-center items-center  rounded-full  md:rounded-lg md:font-semibold cursor-pointer`}
+                }  bg-[#E5E194] btn1    md:px-5 md:py-1 flex justify-center items-center  rounded-full  md:rounded-md md:font-medium cursor-pointer`}
               >
                 Listen
               </span>
@@ -323,7 +323,7 @@ const Card = ({ event }) => {
                   <span
                     className={`${
                       recomend ? "right-color-button" : ""
-                    }    text-blue-500 border border-blue-500 rounded-full text-xs  py-1 md:py-2 font-medium px-2 md:rounded-xl md:text-lg md:font-normal md:text-white md:bg-blue-500 md:px-4 flex justify-center items-center `}
+                    }    text-blue-500 border border-[#408DBC] rounded-full text-xs  py-1 md:py-2 font-medium px-2 md:rounded-md md:text-lg md:font-normal md:text-white md:bg-[#408DBC] md:px-4 flex justify-center items-center `}
                   >
                     Buy Tickets
                   </span>
