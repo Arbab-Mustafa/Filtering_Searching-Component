@@ -200,11 +200,11 @@ const Card = ({ event }) => {
             </div>
 
             {/* People, Genre, and Value */}
-            <div className="flex gap-1 md:gap-4 flex-wrap flex-col w-auto">
-              <div className="flex  justify-between sm:flex-row gap-1  w-fit flex-wrap sm:gap-[6rem] text-sm md:text-base md:justify-between my-2  ">
+            <div className="flex gap-1 md:gap-4 flex-wrap flex-col w-auto  ">
+              <div className="flex  justify-between sm:flex-row gap-1  w-fit flex-wrap sm:gap-[2.3rem] text-sm md:text-base md:justify-between my-2   ">
                 {/* People */}
                 <Link to={`/event/${event._id}`}>
-                  <div className="flex gap-1 sm:gap-2 items-center   justify-start md:justify-between">
+                  <div className="flex gap-1  items-center  md:w-[9rem]    justify-start  ">
                     <p
                       className={`${
                         recomend ? "right-color" : ""
@@ -225,7 +225,7 @@ const Card = ({ event }) => {
                     handleClick(`/event/${event._id}`);
                   }}
                 >
-                  <div className="flex gap-1 sm:gap-2     items-center md:justify-between">
+                  <div className="flex gap-1 sm:gap-2  flex-wrap       items-center md:justify-between">
                     <p
                       className={` ${
                         recomend ? "right-color" : ""
@@ -256,7 +256,7 @@ const Card = ({ event }) => {
               {/* Time and Value (mobile view) */}
               <div
                 className="md:flex hidden w-fit justify-between flex-col sm:flex-row gap-1 
-              sm:gap-[5.70rem]  my-2 "
+              sm:gap-[6.8rem]  my-2   "
               >
                 {/* Time */}
                 <div className="flex gap-1 sm:gap-2 justify-between">
@@ -270,7 +270,7 @@ const Card = ({ event }) => {
                       handleClick(`/event/${event._id}`);
                     }}
                   >
-                    <p>{event.fieldData.StartTime}</p>
+                    <p className="font-normal">{event.fieldData.StartTime}</p>
                   </Link>
                 </div>
                 {/* Value */}
