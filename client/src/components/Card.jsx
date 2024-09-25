@@ -212,7 +212,7 @@ const Card = ({ event }) => {
                     >
                       <BsFillPeopleFill />
                     </p>
-                    <p className="text-[0.75rem] font-semibold md:text-[1rem]">
+                    <p className="text-[0.75rem] font-semibold md:font-normal md:text-[1rem]">
                       {event.fieldData.minAge}
                     </p>
                   </div>
@@ -233,7 +233,7 @@ const Card = ({ event }) => {
                     >
                       <RiFileMusicFill />
                     </p>
-                    <p className="text-[0.75rem] font-semibold md:text-[1rem]">
+                    <p className="text-[0.75rem] font-semibold md:font-normal md:text-[1rem]">
                       {event.fieldData.genres1}
                     </p>
                   </div>
