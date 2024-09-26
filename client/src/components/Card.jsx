@@ -57,13 +57,15 @@ const Card = ({ event }) => {
         {event.fieldData.neighborhood && (
           <div
             className="md:hidden py-0 px-3 w-[5.5rem] absolute   text-[0.6rem]  mx-auto items-end justify-end z-[20]  top-[4rem]
-  -rotate-90 bg-white text-black -left-[1.8rem]"
+  -rotate-90 bg-white text-black -left-[2.18rem]"
           >
             <div className="flex gap-1 mx-auto items-center justify-center ">
               <span className="p-1">
                 <ImTelegram />
               </span>
-              <span className="">{event.fieldData.neighborhood}</span>
+              <span className="flex justify-center items-center text-wrap">
+                {event.fieldData.neighborhood}
+              </span>
             </div>
           </div>
         )}
@@ -100,7 +102,7 @@ const Card = ({ event }) => {
             >
               <div
                 className={` ${recomend ? "left-img" : ""}
-                  h-36   md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
+                  h-[10rem]   md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[400px] overflow-hidden`}
               >
                 <img
                   src={event.fieldData.Main_Image}
@@ -117,7 +119,7 @@ const Card = ({ event }) => {
           <div
             className={` ${
               recomend ? "right" : ""
-            }  flex-1 p-2 md:mt-9 mt-0 md:p-4`}
+            }  flex-1 p-0 md:mt-9 mt-0 md:p-4`}
           >
             {/* Event name */}
             <h3 className="text-sm md:text-3xl font-bold mb-2">
@@ -201,7 +203,7 @@ const Card = ({ event }) => {
 
             {/* People, Genre, and Value */}
             <div className="flex gap-[0.12rem] md:gap-4 flex-wrap flex-col w-auto  ">
-              <div className="flex  justify-between sm:flex-row gap-1  w-fit flex-wrap sm:gap-[2.3rem] text-sm md:text-base md:justify-between my-2   ">
+              <div className="flex   sm:flex-row gap-[1.38rem]  w-fit flex-wrap sm:gap-[2.3rem] text-sm md:text-base md:justify-between my-2   ">
                 {/* People */}
                 <Link to={`/event/${event._id}`}>
                   <div className="flex gap-1 md:gap-2  items-center  md:w-[9rem]    justify-start  ">
