@@ -1,4 +1,4 @@
-This React component allows for searching, filtering, and rendering event data.
+This React component allows for searching, filtering, and rendering event data..
 
 First Version:
 Data is sourced from the Webflow website API.
